@@ -20,6 +20,7 @@ social: true # includes social icons at the bottom of the page
 I am a third-year PhD student at Aarhus University in the Department of Mechanical and Production Engineering.
 I studied first Pure Mathematics (BSc) and then Applied Mathematics (MSc) at University of Pisa.
 My research interests include:
+
 - Scientific Machine Learning
 - Explainable AI for Science
 - Symbolic Regression
