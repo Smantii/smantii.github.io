@@ -9,17 +9,21 @@ profile:
   image: website_profile.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+    <p>Katrinebjergvej 89F 5126, 145</p>
+    <p>8200 Aarhus N, Denmark</p>
 
-news: true # includes a list of news items
+news: False # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `website_profile.jpg` and put it in the `img/` folder.
+I am a third-year PhD student at Aarhus University in the Department of Mechanical and Production Engineering.
+I studied first Pure Mathematics (BSc) and then Applied Mathematics (MSc) at University of Pisa.
+My research interests include:
+- Scientific Machine Learning
+- Explainable AI for Science
+- Symbolic Regression
+- Computational Physics
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
-
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+When I am not working, I usually play some videogames, watch some animated series or improve my AI knowledge
+with some youtube videos.

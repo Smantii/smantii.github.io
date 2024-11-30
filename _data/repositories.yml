@@ -1,14 +1,10 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - Smantii
 
 repo_description_lines_max: 2
 
 github_repos:
-  - alshedivat/al-folio
-  - jekyll/jekyll
-  - twbs/bootstrap
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - mathjax/MathJax
-  - jpswalsh/academicons
+  - cpml-au/AlpineGP
+  - cpml-au/dctkit
+  - Smantii/symbolic_mbrl
+  - Smantii/Superior_Statistics_projects
