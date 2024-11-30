@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /projects/
-title: projects
+title: Projects
 description: GitHub stats and some of the projects I have worked on.
 nav: true
 nav_order: 4

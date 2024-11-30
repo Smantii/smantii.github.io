@@ -1,6 +1,6 @@
 ---
 layout: about
-title: about
+title: About
 permalink: /
 subtitle: <em>"Whatever happens, happens"</em>, Spike Spiegel
 
