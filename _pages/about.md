@@ -13,7 +13,7 @@ profile:
     <p>8200 Aarhus N, Denmark</p>
 
 news: False # includes a list of news items
-selected_papers: true # includes a list of papers marked as "selected={true}"
+selected_papers: False # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
