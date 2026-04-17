@@ -1,141 +1,178 @@
 {
   "basics": {
     "name": "Simone Manti",
-    "label": "PhD student",
+    "label": "Machine Learning Researcher",
     "image": "",
     "email": "manti998@gmail.com",
-    "url": "https://pure.au.dk/portal/en/persons/smanti%40mpe.au.dk"
+    "url": "https://smantii.github.io",
+    "summary": "Machine Learning and Computational Physics researcher with strong competencies in Symbolic Regression, High-Performance Computing, and model discovery for complex systems.",
+    "profiles": [
+      {
+        "network": "GitHub",
+        "username": "Smantii",
+        "url": "https://github.com/Smantii"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "simone-manti-653054210",
+        "url": "https://linkedin.com/in/simone-manti-653054210"
+      }
+    ]
   },
   "work": [
     {
-      "name": "Institute for Advanced Study, Princeton University",
-      "position": "Professor of Theoretical Physics",
-      "url": "https://example.com",
-      "startDate": "1933-01-01",
-      "endDate": "1955-01-01",
-      "summary": "Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.",
-      "highlights": ["Relativity"]
+      "name": "Compular",
+      "position": "Machine Learning for Computational Material Science Intern",
+      "url": "https://compulartech.com",
+      "startDate": "2026-03-01",
+      "highlights": [
+        "Design, implementation and benchmarking of machine learning pipelines for predicting material and formulation properties.",
+        "Main responsible of the machine learning pipelines in support of Compular's computational materials simulation platform."
+      ]
+    },
+    {
+      "name": "Aarhus University",
+      "position": "Research Assistant – Computational Physics and Machine Learning Lab",
+      "startDate": "2025-10-01",
+      "endDate": "2026-06-01",
+      "highlights": [
+        "Design and implementation of novel data-driven model discovery algorithms to advance the state-of-the-art of Scientific Machine Learning.",
+        "Design and development of high-performance Python libraries for Scientific Machine Learning."
+      ]
+    },
+    {
+      "name": "Aarhus University",
+      "position": "PhD Student – Computational Physics and Machine Learning Lab",
+      "startDate": "2023-01-01",
+      "endDate": "2025-09-01",
+      "highlights": [
+        "Developing Scientific Machine Learning methods combining symbolic regression and discrete mathematics.",
+        "Designing and discovering interpretable models for turbulent flows, traffic modeling, and multiscale PDEs.",
+        "Leveraging Python, JAX, and HPC workflows to scale experiments and accelerate simulations.",
+        "Publishing in prestigious journals and conferences (e.g., Journal of Computational Physics, NeurIPS workshops).",
+        "Building and maintaining open-source Python libraries for model discovery and numerical simulation."
+      ]
+    },
+    {
+      "name": "Virginia Tech",
+      "position": "Visiting Scholar – Department of Mathematics",
+      "startDate": "2024-10-01",
+      "endDate": "2024-12-01",
+      "highlights": [
+        "Worked on Data-Driven Reduced-Order Modeling for convection-dominated flows.",
+        "Strengthened expertise in physical simulation and interpretable ML with world-renowned collaborators."
+      ]
     }
   ],
   "volunteer": [
     {
-      "organization": "People's Climate March",
-      "location": "Zurich, Switzerland",
-      "position": "Lead Organizer",
-      "url": "https://example.com",
-      "startDate": "2014-04-01",
-      "endDate": "2015-07-01",
-      "summary": "Lead organizer for the New York City branch of the People's Climate March, the largest climate march in history.",
-      "highlights": ["Awarded 'Climate Hero' award by Greenpeace for my efforts organizing the march.", "Men of the year 2014 by Time magazine"]
+      "organization": "GECCO",
+      "position": "Reviewer",
+      "summary": "Reviewing submissions for the Genetic and Evolutionary Computation Conference."
+    },
+    {
+      "organization": "NeurIPS Workshop ML4PS",
+      "position": "Reviewer",
+      "summary": "Reviewing submissions for the NeurIPS Workshop on Machine Learning and the Physical Sciences."
+    },
+    {
+      "organization": "Philosophical Transactions of the Royal Society A",
+      "position": "Reviewer",
+      "summary": "Reviewing manuscripts for Philosophical Transactions of the Royal Society A."
     }
   ],
   "education": [
     {
-      "institution": "University of Zurich, Zurich, Switzerland",
-      "location": "Zurich, Switzerland",
-      "url": "https://www.uzh.ch/",
-      "area": "Software Development",
+      "institution": "Aarhus University",
+      "location": "Aarhus, Denmark",
+      "url": "https://www.au.dk/",
+      "area": "Mechanical Engineering",
       "studyType": "PhD",
-      "startDate": "1905-01-01",
-      "endDate": "1905-01-01",
-      "score": "10",
-      "courses": ["Theory of Relativity"]
-    }
-  ],
-  "awards": [
+      "startDate": "2023-01-01",
+      "endDate": "2025-12-01"
+    },
     {
-      "title": "Nobel Prize in Physics",
-      "date": "1921-11-01",
-      "awarder": "Royal Swedish Academy of Sciences",
-      "url": "https://www.nobelprize.org/prizes/physics/1921/einstein/biographical/",
-      "summary": "The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'"
+      "institution": "Università di Pisa",
+      "location": "Pisa, Italy",
+      "url": "https://www.unipi.it/",
+      "area": "Mathematics (Applied)",
+      "studyType": "MSc",
+      "startDate": "2020-01-01",
+      "endDate": "2022-12-01"
+    },
+    {
+      "institution": "Università di Pisa",
+      "location": "Pisa, Italy",
+      "url": "https://www.unipi.it/",
+      "area": "Mathematics (Pure)",
+      "studyType": "BSc",
+      "startDate": "2017-01-01",
+      "endDate": "2020-12-01"
     }
   ],
+  "awards": [],
   "certificates": [
     {
-      "name": "Machine Learning",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-location-dot"
+      "name": "M2L Summer School",
+      "issuer": "Google, Meta, Mistral AI",
+      "icon": "fa-solid fa-graduation-cap"
     },
     {
-      "name": "Quantum Computing",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-tag"
-    },
-    {
-      "name": "Quantum Information",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-envelope"
-    },
-    {
-      "name": "Quantum Cryptography",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-hashtag"
-    },
-    {
-      "name": "Quantum Communication",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-calendar"
-    },
-    {
-      "name": "Quantum Teleportation",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "url": "https://example.com",
-      "icon": "fa-solid fa-clipboard-check"
+      "name": "Simulation and Modeling of Natural Processes",
+      "issuer": "Coursera",
+      "icon": "fa-solid fa-laptop"
     }
   ],
   "publications": [
     {
-      "name": "Zur Elektrody/namik bewegter Körper",
-      "publisher": "Annalen der Physik",
-      "releaseDate": "1905-06-30",
-      "url": "https://en.wikisource.org/wiki/Translation:On_the_Electrodynamics_of_Moving_Bodies",
-      "summary": "It concerned an interpretation of the Michelson–Morley experiment and the properties of light and time. Special relativity incorporates the principle that the speed of light is the same for all inertial observers regardless of the state of motion of the source."
+      "name": "SR-Traffic: Discovering Macroscopic Traffic Flow Models with Symbolic Regression",
+      "publisher": "ML4PS Workshop, NeurIPS 2025",
+      "releaseDate": "2025-12-01",
+      "summary": "Symbolic regression applied to discovering macroscopic traffic flow models directly from data."
     },
     {
-      "name": "Über einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt",
-      "publisher": "Annalen der Physik",
-      "releaseDate": "1905-03-18",
-      "url": "https://de.wikisource.org/wiki/Über_einen_die_Erzeugung_und_Verwandlung_des_Lichtes_betreffenden_heuristischen_Gesichtspunkt",
-      "summary": "In the second paper, he applied the quantum theory to light to explain the photoelectric effect. In particular, he used the idea of light quanta (photons) to explain experimental results, but stressed the importance of the experimental results. The importance of his work on the photoelectric effect earned him the Nobel Prize in Physics in 1921."
+      "name": "Symbolic Regression of Data-Driven Reduced Order Model Closures for Under-Resolved, Convection-Dominated Flows",
+      "publisher": "Journal of Computational Physics",
+      "releaseDate": "2025-01-01",
+      "summary": "Symbolic regression of ROM closures for high-Reynolds number flow simulations."
     },
     {
-      "name": "Die Grundlage der allgemeinen Relativitätstheorie",
-      "publisher": "Annalen der Physik",
-      "releaseDate": "1916-03-20",
-      "url": "https://de.wikisource.org/wiki/Die_Grundlage_der_allgemeinen_Relativitätstheorie",
-      "summary": "The publication of the theory of general relativity made him internationally famous. He was professor of physics at the universities of Zurich (1909–1911) and Prague (1911–1912), before he returned to ETH Zurich (1912–1914)."
+      "name": "Discovering Interpretable Physical Models using Symbolic Regression and Discrete Exterior Calculus",
+      "publisher": "Machine Learning: Science and Technology",
+      "releaseDate": "2024-01-01",
+      "url": "https://iopscience.iop.org/article/10.1088/2632-2153/ad1519",
+      "summary": "Combined symbolic regression with discrete exterior calculus for interpretable physical model discovery."
     }
   ],
   "skills": [
     {
-      "name": "Physics",
-      "level": "Master",
-      "icon": "fa-solid fa-hashtag",
-      "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
-      ]
+      "name": "Scientific Machine Learning",
+      "level": "Expert",
+      "icon": "fa-solid fa-brain",
+      "keywords": ["Symbolic Regression", "Neural Networks", "Genetic Programming", "Model Discovery"]
+    },
+    {
+      "name": "Programming",
+      "level": "Expert",
+      "icon": "fa-solid fa-code",
+      "keywords": ["Python", "JAX", "NumPy", "PyTorch", "scikit-learn", "Pandas"]
+    },
+    {
+      "name": "High-Performance Computing",
+      "level": "Advanced",
+      "icon": "fa-solid fa-server",
+      "keywords": ["Slurm", "Job Scheduling", "Workload Management"]
+    },
+    {
+      "name": "Other Tools",
+      "level": "Proficient",
+      "icon": "fa-solid fa-wrench",
+      "keywords": ["Git", "Conda", "MATLAB", "R", "C"]
     }
   ],
   "languages": [
     {
-      "language": "German",
+      "language": "Italian",
       "fluency": "Native speaker",
       "icon": ""
     },
@@ -143,42 +180,52 @@
       "language": "English",
       "fluency": "Fluent",
       "icon": ""
+    },
+    {
+      "language": "Danish",
+      "fluency": "Basic (actively learning)",
+      "icon": ""
     }
   ],
   "interests": [
     {
-      "name": "Physics",
-      "icon": "fa-solid fa-tag",
-      "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
-      ]
-    }
-  ],
-  "references": [
-    {
-      "name": "Professor John Doe",
-      "icon": "fa-solid fa-laptop",
-      "reference": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit. D"
+      "name": "Bouldering & Fitness",
+      "icon": "fa-solid fa-dumbbell"
     },
     {
-      "name": "Professor John Doe",
-      "icon": "fa-solid fa-thumbtack",
-      "reference": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit. D"
+      "name": "Music",
+      "icon": "fa-solid fa-music"
+    },
+    {
+      "name": "Movies & TV Series",
+      "icon": "fa-solid fa-film"
+    },
+    {
+      "name": "Tennis",
+      "icon": "fa-solid fa-baseball-bat-ball"
     }
   ],
+  "references": [],
   "projects": [
     {
-      "name": "Quantum Computing",
-      "summary": "Quantum computing is the use of quantum-mechanical phenomena such as superposition and entanglement to perform computation. Computers that perform quantum computations are known as quantum computers.",
-      "highlights": ["Quantum Teleportation", "Quantum Cryptography"],
-      "startDate": "2018-01-01",
-      "endDate": "2018-01-01",
-      "url": "https://example.com"
+      "name": "Flex",
+      "summary": "A flexible, genetic programming-based symbolic regression library built on DEAP and JAX.",
+      "url": "https://github.com/cpml-au/Flex"
+    },
+    {
+      "name": "dctkit",
+      "summary": "A toolkit for discrete calculus enabling physical modeling on complex geometries.",
+      "url": "https://github.com/cpml-au/dctkit"
+    },
+    {
+      "name": "SR-ROM-ConvectionDominatedFlows",
+      "summary": "Symbolic regression of ROM closures for convection-dominated flows.",
+      "url": "https://github.com/cpml-au/SR-ROM-ConvectionDominatedFlows"
+    },
+    {
+      "name": "SR-Traffic",
+      "summary": "Framework discovering phenomenological laws for traffic flow directly from data.",
+      "url": "https://github.com/cpml-au/SR-Traffic"
     }
   ]
 }

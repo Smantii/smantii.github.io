@@ -314,8 +314,8 @@ jekyll-minifier:
 # -----------------------------------------------------------------------------
 
 scholar:
-  last_name: [Einstein]
-  first_name: [Albert, A.]
+  last_name: [Manti]
+  first_name: [Simone, S.]
 
   style: apa
   locale: en

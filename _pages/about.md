@@ -8,23 +8,19 @@ profile:
   align: right
   image: website_profile.jpg
   image_circular: false # crops the image to make it circular
-  more_info: >
-    <p>Katrinebjergvej 89F 5126, 145</p>
-    <p>8200 Aarhus N, Denmark</p>
 
-news: False # includes a list of news items
-selected_papers: False # includes a list of papers marked as "selected={true}"
+news: false # includes a list of news items
+selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-I am a third-year PhD student at Aarhus University in the Department of Mechanical and Production Engineering.
-I studied first Pure Mathematics (BSc) and then Applied Mathematics (MSc) at University of Pisa.
-My research interests include:
+I am a Machine Learning and Computational Physics researcher, currently working as a Machine Learning intern at [Compular](https://compulartech.com) and as a Research Assistant at Aarhus University. I hold a PhD in Mechanical Engineering from Aarhus University and a BSc and MSc in Mathematics from Università di Pisa.
+
+My research focuses on:
 
 - Scientific Machine Learning
-- Explainable AI for Science
-- Symbolic Regression
-- Computational Physics
+- Symbolic Regression & Neuro-Symbolic AI
+- High-Performance Computing
+- Mathematical Modeling and Computational Physics
 
-When I am not working, I usually play some videogames, watch some animated series or improve my AI knowledge
-with some youtube videos.
+When I am not working, I enjoy bouldering and fitness, music, movies and TV series, and tennis.

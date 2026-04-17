@@ -2,96 +2,103 @@
   type: map
   contents:
     - name: Full Name
-      value: Albert Einstein
-    - name: Date of Birth
-      value: 14th March 1879
+      value: Simone Manti
     - name: Languages
-      value: English, German
+      value: Italian (Native), English (Fluent), Danish (Basic)
 
 - title: Education
   type: time_table
   contents:
-    - title: PhD
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1905
+    - title: PhD in Mechanical Engineering
+      institution: Aarhus University, Aarhus, Denmark
+      year: 2023-2025
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Federal teaching diploma
-      institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
-      year: 1900
+        - Scientific Machine Learning, Symbolic Regression, and Computational Physics.
+        - Publishing in prestigious journals and conferences (Journal of Computational Physics, NeurIPS workshops).
+    - title: MSc in Mathematics
+      institution: Università di Pisa, Pisa, Italy
+      year: 2020-2022
       description:
-        - Description 1.
-        - Description 2.
+        - Applied Mathematics.
+    - title: BSc in Mathematics
+      institution: Università di Pisa, Pisa, Italy
+      year: 2017-2020
+      description:
+        - Pure Mathematics.
 
 - title: Experience
   type: time_table
   contents:
-    - title: Professor of Theoretical Physics
-      institution: Institute for Advanced Study, Princeton University
-      year: 1933 - 1955
+    - title: Machine Learning for Computational Material Science Intern
+      institution: Compular
+      year: Mar. 2026 - Present
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Visiting Professor
-      institution: California Institute of Technology, Pasadena, California, US
-      year: 1933
+        - Design, implementation and benchmarking of machine learning pipelines for predicting material and formulation properties.
+        - Main responsible of the machine learning pipelines in support of Compular's computational materials simulation platform.
+    - title: Research Assistant
+      institution: Computational Physics and Machine Learning Lab, Aarhus University
+      year: Oct. 2025 - Jun. 2026
       description:
-        - Description 1.
-        - Description 2.
-
-    - title: Director
-      institution: Kaiser Wilhelm Institute for Physics, Berlin, Germany.
-      year: 1917-1933
-
-    - title: Professor of Theoretical Physics
-      institution: Karl-Ferdinand University, Prague, Czechoslovakia
-      year: 1911 - 1917
+        - Design and implementation of novel data-driven model discovery algorithms to advance the state-of-the-art of Scientific Machine Learning.
+        - Design and development of high-performance Python libraries for Scientific Machine Learning.
+    - title: PhD Student
+      institution: Computational Physics and Machine Learning Lab, Aarhus University
+      year: Jan. 2023 - Sep. 2025
       description:
-
-    - title: Associate Professor of Theoretical Physics
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1909 - 1911
+        - Developing Scientific Machine Learning methods combining symbolic regression and discrete mathematics.
+        - Designing and discovering interpretable models for turbulent flows, traffic modeling, and multiscale PDEs.
+        - Leveraging Python, JAX, and HPC workflows to scale experiments and accelerate simulations.
+        - Building and maintaining open-source Python libraries for model discovery and numerical simulation.
+    - title: Visiting Scholar
+      institution: Department of Mathematics, Virginia Tech
+      year: Oct. 2024 - Dec. 2024
+      description:
+        - Worked on Data-Driven Reduced-Order Modeling for convection-dominated flows.
+        - Strengthened expertise in physical simulation and interpretable ML with world-renowned collaborators.
 
 - title: Open Source Projects
   type: time_table
   contents:
-    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
-      year: 2015-now
-      description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
+    - title: <a href="https://github.com/cpml-au/Flex">Flex</a>
+      year: 2023-now
+      description: A flexible, genetic programming-based symbolic regression library built on DEAP and JAX.
+    - title: <a href="https://github.com/cpml-au/dctkit">dctkit</a>
+      year: 2022-now
+      description: A toolkit for discrete calculus enabling physical modeling on complex geometries.
+    - title: <a href="https://github.com/cpml-au/SR-ROM-ConvectionDominatedFlows">SR-ROM</a>
+      year: 2024-2025
+      description: Symbolic closures for high-Reynolds number flow simulations.
+    - title: <a href="https://github.com/cpml-au/SR-Traffic">SR-Traffic</a>
+      year: 2025
+      description: Framework discovering phenomenological laws for traffic flow directly from data.
 
-- title: Honors and Awards
+- title: Other Experiences
   type: time_table
   contents:
-    - year: 1921
+    - year: 2023-now
       items:
-        - Nobel Prize in Physics
-        - Matteucci Medal
-    - year: 2029
+        - Reviewer for GECCO, NeurIPS Workshop ML4PS, Philosophical Transactions of the Royal Society A
+        - Teaching Assistant, Data Science, Aarhus University
+        - Co-supervision of MSc students
+    - year: 2023
       items:
-        - Max Planck Medal
+        - Finalist in scientific communication (3 Minute Thesis)
 
 - title: Academic Interests
   type: nested_list
   contents:
-    - title: Topic 1.
+    - title: Scientific Machine Learning
       items:
-        - Description 1.
-        - Description 2.
-    - title: Topic 2.
+        - Symbolic Regression
+        - Model Discovery
+        - Neuro-Symbolic AI
+    - title: Computational Physics
       items:
-        - Description 1.
-        - Description 2.
+        - Reduced-Order Modeling
+        - Discrete Exterior Calculus
+        - Turbulence and Traffic Modeling
 
 - title: Other Interests
   type: list
   contents:
-    - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
+    - <u>Hobbies:</u> Bouldering & Fitness, Music, Movies & TV Series, Tennis
