@@ -7,11 +7,11 @@ subtitle: <em>"Whatever happens, happens"</em>, Spike Spiegel
 profile:
   align: right
   image: website_profile.jpg
-  image_circular: false # crops the image to make it circular
+  image_circular: true # crops the image to make it circular
 
-news: false # includes a list of news items
+news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
+social: false # includes social icons at the bottom of the page
 ---
 
 I am a Machine Learning and Computational Physics researcher, currently working as a Machine Learning intern at [Compular](https://compulartech.com) and as a Research Assistant at Aarhus University. I hold a PhD in Mechanical Engineering from Aarhus University and a BSc and MSc in Mathematics from Università di Pisa.
