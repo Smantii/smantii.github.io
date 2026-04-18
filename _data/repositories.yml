@@ -4,7 +4,9 @@ github_users:
 repo_description_lines_max: 2
 
 github_repos:
-  - cpml-au/AlpineGP
+  - cpml-au/Flex
   - cpml-au/dctkit
+  - cpml-au/SR-ROM-ConvectionDominatedFlows
+  - cpml-au/SR-Traffic
+  - cpml-au/SR-DEC_Examples
   - Smantii/symbolic_mbrl
-  - Smantii/Superior_Statistics_projects

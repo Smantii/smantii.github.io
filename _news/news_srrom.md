@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-New paper published in the [Journal of Computational Physics](https://www.sciencedirect.com/journal/journal-of-computational-physics): *Symbolic Regression of Data-Driven Reduced Order Model Closures for Under-Resolved, Convection-Dominated Flows*.
+New paper in the [Journal of Computational Physics](https://www.sciencedirect.com/journal/journal-of-computational-physics): _Symbolic Regression of Data-Driven Reduced Order Model Closures for Under-Resolved, Convection-Dominated Flows_.

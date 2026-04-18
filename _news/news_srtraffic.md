@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-New paper at the [NeurIPS ML4PS Workshop](https://ml4physicalsciences.github.io/): *SR-Traffic — Discovering Macroscopic Traffic Flow Models with Symbolic Regression*.
+New paper at the [NeurIPS ML4PS Workshop](https://ml4physicalsciences.github.io/): _SR-Traffic &mdash; Discovering Macroscopic Traffic Flow Models with Symbolic Regression_.
