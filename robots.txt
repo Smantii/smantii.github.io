@@ -1,5 +1,4 @@
-<!doctype html>
-<html lang="en">
+<!doctype html><html lang="en" data-color="navy">
   <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title> · Simone Manti</title>
@@ -16,11 +15,11 @@
 <meta property="og:image" content="https://smantii.github.io/assets/img/website_profile.jpg">
 <meta name="twitter:card" content="summary">
 
-<meta name="theme-color" content="#f6f4ee" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0d0e11" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#dcf2ff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#050d2b" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="/favicon.ico?v=2" sizes="48x48">
 <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg?a7e4441a19ac2d102e1d58b81ad87389">
-<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png?c5b511584aafbe664f9813d1eca41aea">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png?f72fa9754fd8df746243885da019b98b">
 <link rel="alternate" type="application/rss+xml" title="Simone Manti — Writing" href="/blog/feed.xml">
 
 <!-- Set theme before paint to avoid a flash -->
@@ -31,17 +30,28 @@
       var t = localStorage.getItem("theme");
       if (t === "dark" || t === "light") d.setAttribute("data-theme", t);
     } catch (e) {}
+    // Arriving from a page-transition wipe: start fully covered, site.js uncovers.
+    try {
+      var w = sessionStorage.getItem("wipe");
+      if (w) {
+        d.classList.add("arriving");
+        d.setAttribute("data-wipe", w);
+        d.setAttribute("data-wipe-label", sessionStorage.getItem("wipeLabel") || "");
+        sessionStorage.removeItem("wipe");
+        sessionStorage.removeItem("wipeLabel");
+      }
+    } catch (e) {}
     // Reveal animations need site.js; show everything if it never loads.
     d.classList.add("js");
-    setTimeout(function () { if (!window.__siteReady) d.classList.remove("js"); }, 2500);
+    setTimeout(function () { if (!window.__siteReady) d.classList.remove("js", "arriving"); }, 2500);
   })();
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap">
-<link rel="stylesheet" href="/assets/css/main.css?949593ea77e7c5e9a54a9d0d1ba4b8ab">
-<script defer src="/assets/js/site.js?621ed70e2904f09a0f49ed8e1a53554a"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,600;1,700;1,800;1,900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap">
+<link rel="stylesheet" href="/assets/css/main.css?70c64e35f6756186cd91b311fb43633d">
+<script defer src="/assets/js/site.js?120d520d136dc22dbb17958fa8ddcc92"></script>
 
   </head>
   <body class="layout-page">
@@ -49,11 +59,11 @@
     <header class="site-header" data-open="false">
   <div class="wrap header-inner">
     <a class="brand" href="/" aria-label="Simone Manti — home">
-      <span class="brand-mark" aria-hidden="true">s</span>
+      <img class="brand-mark" src="/assets/img/apple-touch-icon.png?f72fa9754fd8df746243885da019b98b" alt="" width="180" height="180">
       <span class="brand-name">Simone <em>Manti</em></span>
     </a>
 
-    <nav class="nav" id="site-nav" aria-label="Primary"><a class="nav-link" href="/publications/" >Research</a><a class="nav-link" href="/projects/" >Projects</a><a class="nav-link" href="/blog/" >Writing</a><a class="nav-link" href="/cv/" >CV</a></nav>
+    <nav class="nav" id="site-nav" aria-label="Primary"><a class="nav-link" href="/publications/" data-color="cyan" >Research</a><a class="nav-link" href="/projects/" data-color="sky" >Projects</a><a class="nav-link" href="/blog/" data-color="ice" >Writing</a><a class="nav-link" href="/cv/" data-color="aqua" >CV</a></nav>
 
     <div class="header-actions">
       <button class="icon-btn theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
@@ -72,8 +82,10 @@
     <main id="main">
       <header class="page-head">
   <canvas class="flow flow--band" aria-hidden="true"></canvas>
+  <svg class="doodle doodle--sparkle float float--a page-doodle page-doodle--1" viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M24 4c1.6 9.4 5.6 13.6 16 16-10.4 2.4-14.4 6.6-16 16-1.6-9.4-5.6-13.6-16-16 10.4-2.4 14.4-6.6 16-16Z" fill="var(--fill, none)"/></svg>
+  <svg class="doodle doodle--shard float float--b page-doodle page-doodle--2" viewBox="0 0 64 64" aria-hidden="true" fill="var(--fill, none)" stroke="currentColor" stroke-width="3" stroke-linejoin="miter"><path d="M6 40 30 4l6 22 22-6-20 40-4-20Z"/></svg>
   <div class="wrap">
-    <h1 class="display display--md" data-reveal></h1>
+    <h1 class="display display--md" data-split></h1>
   </div>
 </header>
 <div class="wrap page-body ">
@@ -89,7 +101,7 @@ Sitemap: https://smantii.github.io/sitemap.xml
   <div class="wrap footer-inner">
     <div class="footer-col">
       <a class="brand brand--small" href="/">
-        <span class="brand-mark" aria-hidden="true">s</span>
+        <img class="brand-mark" src="/assets/img/apple-touch-icon.png?f72fa9754fd8df746243885da019b98b" alt="" width="180" height="180">
         <span class="brand-name">Simone <em>Manti</em></span>
       </a>
       <p class="footer-meta">Machine Learning Engineer</p>
@@ -106,5 +118,22 @@ Sitemap: https://smantii.github.io/sitemap.xml
   </div>
 </footer>
 
+
+    <!-- Page transition: Persona-style diagonal bands with the destination's name. -->
+    <div class="wipe" aria-hidden="true">
+      <span class="wipe-band wipe-band--1"></span>
+      <span class="wipe-band wipe-band--2"></span>
+      <span class="wipe-band wipe-band--3"></span>
+      <div class="wipe-title">
+        <img class="wipe-mark" src="/assets/img/apple-touch-icon.png?f72fa9754fd8df746243885da019b98b" alt="" width="180" height="180">
+        <span class="wipe-label"></span>
+      </div>
+    </div>
+    <script>
+      (function () {
+        var l = document.documentElement.getAttribute("data-wipe-label");
+        if (l) document.querySelector(".wipe-label").textContent = l;
+      })();
+    </script>
   </body>
 </html>
