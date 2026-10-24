@@ -1,12 +1,38 @@
-github_users:
-  - Smantii
+# Projects shown on /projects/. `featured: true` also shows them on the home page.
+- name: Flex
+  repo: cpml-au/Flex
+  years: 2023 — now
+  description: A flexible, genetic-programming-based symbolic regression library built on DEAP and JAX.
+  tags: [Symbolic Regression, JAX, Library]
+  featured: true
 
-repo_description_lines_max: 2
+- name: dctkit
+  repo: cpml-au/dctkit
+  years: 2022 — now
+  description: A toolkit for discrete calculus, enabling physical modeling and simulation on complex geometries.
+  tags: [Discrete Exterior Calculus, Simulation, Library]
+  featured: true
 
-github_repos:
-  - cpml-au/Flex
-  - cpml-au/dctkit
-  - cpml-au/SR-ROM-ConvectionDominatedFlows
-  - cpml-au/SR-Traffic
-  - cpml-au/SR-DEC_Examples
-  - Smantii/symbolic_mbrl
+- name: SR-ROM
+  repo: cpml-au/SR-ROM-ConvectionDominatedFlows
+  years: 2024 — 2025
+  description: Symbolic closures for reduced-order models of under-resolved, high-Reynolds-number flows.
+  tags: [Reduced-Order Modeling, Turbulence]
+
+- name: SR-Traffic
+  repo: cpml-au/SR-Traffic
+  years: 2025
+  description: A framework that discovers phenomenological laws for macroscopic traffic flow directly from data.
+  tags: [Traffic Modeling, Model Discovery]
+
+- name: SR-DEC Examples
+  repo: cpml-au/SR-DEC_Examples
+  years: 2025
+  description: Symbolic regression problems for physical systems built on discrete exterior calculus primitives — heat transfer, linear elasticity, Euler's elastica.
+  tags: [Benchmarks, Paper Code]
+
+- name: symbolic_mbrl
+  repo: Smantii/symbolic_mbrl
+  years: 2024
+  description: Symbolic model-based reinforcement learning — interpretable dynamics models for control.
+  tags: [Reinforcement Learning, Symbolic Models]

@@ -1,0 +1,26 @@
+---
+layout: page
+permalink: /projects/
+title: Projects
+heading: Open source
+eyebrow: Projects
+description: Libraries and research code I build and maintain, mostly at the <a href="https://github.com/cpml-au">Computational Physics & Machine Learning Lab</a>.
+---
+
+<div class="project-grid">
+{%- for p in site.data.repositories %}
+  <a class="project-card" href="https://github.com/{{ p.repo }}" data-reveal>
+    <div class="project-top">
+      <span class="project-icon">{% include icon.liquid name="github" %}</span>
+      {%- if p.years %}<span class="eyebrow">{{ p.years }}</span>{% endif %}
+    </div>
+    <h2>{{ p.name }}</h2>
+    <p class="project-repo">{{ p.repo }}</p>
+    <p class="project-desc">{{ p.description }}</p>
+    <p class="tags">{% for t in p.tags %}<span class="tag">{{ t }}</span>{% endfor %}</p>
+    <span class="project-arrow">{% include icon.liquid name="arrow-up-right" %}</span>
+  </a>
+{%- endfor %}
+</div>
+
+<p class="page-note">More on <a href="https://github.com/{{ site.social.github }}">github.com/{{ site.social.github }}</a>.</p>

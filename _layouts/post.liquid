@@ -1,99 +1,67 @@
 ---
 layout: default
 ---
-{% assign year = page.date | date: '%Y' %}
-{% assign tags = page.tags | join: '' %}
-{% assign categories = page.categories | join: '' %}
-
-{% if page._styles %}
-  <!-- Page/Post style -->
-  <style type="text/css">
-    {{ page._styles }}
-  </style>
-{% endif %}
-
-{% assign url_beginning = page.url | slice: 0, 6 %}
-
-<div class="post">
-  <header class="post-header">
-    <h1 class="post-title">{{ page.title }}</h1>
-    <p class="post-meta">
-      Created in {{ page.date | date: '%B %d, %Y' }}
-      {% if page.author %}by {{ page.author }}{% endif %}
-      {% if page.last_updated %}, last updated in {{ page.last_updated | date: '%B %d, %Y' }}{% endif %}
-      {% if page.meta %}• {{ page.meta }}{% endif %}
+{%- assign words = content | strip_html | number_of_words -%}
+{%- assign minutes = words | plus: 120 | divided_by: 200 | at_least: 1 -%}
+<article class="article" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-hero">
+  <canvas class="flow flow--band" aria-hidden="true"></canvas>
+  <header class="article-head wrap wrap--narrow">
+    <a class="back-link" href="{{ '/blog/' | relative_url }}">{% include icon.liquid name="arrow-left" %} All writing</a>
+    <p class="eyebrow">
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%B %-d, %Y" }}</time>
+      · {{ minutes }} min read
     </p>
-    <p class="post-tags">
-      {% if url_beginning == '/blog/' %}
-        <a href="{{ year | prepend: '/blog/' | prepend: site.baseurl}}"> <i class="fa-solid fa-calendar fa-sm"></i> {{ year }} </a>
-      {% else %}
-        <i class="fa-solid fa-calendar fa-sm"></i> {{ year }}
-      {% endif %}
-      {% if tags != '' %}
-        &nbsp; &middot; &nbsp;
-        {% for tag in page.tags %}
-          {% if url_beginning == '/blog/' %}
-            <a href="{{ tag | slugify | prepend: '/blog/tag/' | prepend: site.baseurl}}"> <i class="fa-solid fa-hashtag fa-sm"></i> {{ tag }}</a>
-          {% else %}
-            <i class="fa-solid fa-hashtag fa-sm"></i> {{ tag }}
-          {% endif %}
-          {% unless forloop.last %}
-            &nbsp;
-          {% endunless %}
-        {% endfor %}
-      {% endif %}
-
-      {% if categories != '' %}
-        &nbsp; &middot; &nbsp;
-        {% for category in page.categories %}
-          {% if url_beginning == '/blog/' %}
-            <a href="{{ category | slugify | prepend: '/blog/category/' | prepend: site.baseurl}}">
-              <i class="fa-solid fa-tag fa-sm"></i> {{ category -}}
-            </a>
-          {% else %}
-            <i class="fa-solid fa-tag fa-sm"></i> {{ category }}
-          {% endif %}
-          {% unless forloop.last %}
-            &nbsp;
-          {% endunless %}
-        {% endfor %}
-      {% endif %}
-    </p>
+    <h1 class="display display--md" itemprop="headline">{{ page.title }}</h1>
+    {%- if page.description %}<p class="lede" itemprop="description">{{ page.description }}</p>{% endif %}
+    {%- if page.tags.size > 0 %}
+    <p class="tags">{% for t in page.tags %}<span class="tag">{{ t }}</span>{% endfor %}</p>
+    {%- endif %}
+    {%- if page.linkedin %}
+    <a class="linkedin-note" href="{{ page.linkedin }}">
+      {% include icon.liquid name="linkedin" %}
+      <span>This is the long version of a <strong>LinkedIn post</strong>. Read the original and join the discussion there.</span>
+      {% include icon.liquid name="arrow-up-right" %}
+    </a>
+    {%- endif %}
   </header>
+  </div>
 
-  <article class="post-content">
-    {% if page.toc and page.toc.beginning %}
-      <div id="table-of-contents">
-        {% toc %}
+  {%- if page.cover %}
+  <figure class="article-cover wrap">
+    <img src="{{ page.cover | relative_url }}" alt="{{ page.cover_alt | default: '' }}">
+    {%- if page.cover_caption %}<figcaption>{{ page.cover_caption }}</figcaption>{% endif %}
+  </figure>
+  {%- endif %}
+
+  <div class="prose wrap wrap--narrow" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  <footer class="article-foot wrap wrap--narrow">
+    <div class="author-card">
+      <img src="{{ '/assets/img/website_profile.jpg' | relative_url }}" alt="" width="64" height="64" loading="lazy">
+      <div>
+        <p class="author-name">{{ site.first_name }} {{ site.last_name }}</p>
+        <p class="muted">{{ site.role }}. I write here about scientific ML, symbolic regression and research life.</p>
       </div>
-      <hr>
-    {% endif %}
-    <div id="markdown-content">
-      {{ content }}
     </div>
-  </article>
-
-  {% if page.citation %}
-    {% include citation.liquid %}
-  {% endif %}
-
-  {% if page.related_publications %}
-    <h2>References</h2>
-    <div class="publications">
-      {% bibliography --cited_in_order %}
+    <div class="article-actions">
+      {%- if page.linkedin %}
+      <a class="btn btn--primary" href="{{ page.linkedin }}">{% include icon.liquid name="linkedin" %} Discuss on LinkedIn</a>
+      {%- else %}
+      <a class="btn btn--primary" href="https://www.linkedin.com/in/{{ site.social.linkedin }}">{% include icon.liquid name="linkedin" %} Follow on LinkedIn</a>
+      {%- endif %}
+      <a class="btn btn--ghost" href="{{ '/blog/feed.xml' | relative_url }}">{% include icon.liquid name="rss" %} RSS</a>
     </div>
-  {% endif %}
 
-  {% if site.related_blog_posts.enabled %}
-    {% if page.related_posts == null or page.related_posts %}
-      {% include related_posts.liquid %}
-    {% endif %}
-  {% endif %}
-
-  {% if site.disqus_shortname and page.disqus_comments %}
-    {% include disqus.liquid %}
-  {% endif %}
-  {% if site.giscus and page.giscus_comments %}
-    {% include giscus.liquid %}
-  {% endif %}
-</div>
+    <nav class="post-nav" aria-label="More posts">
+      {%- if page.previous %}
+      <a class="post-nav-link" href="{{ page.previous.url | relative_url }}"><span class="eyebrow">Previous</span><span>{{ page.previous.title }}</span></a>
+      {%- else %}<span></span>{% endif %}
+      {%- if page.next %}
+      <a class="post-nav-link post-nav-link--next" href="{{ page.next.url | relative_url }}"><span class="eyebrow">Next</span><span>{{ page.next.title }}</span></a>
+      {%- endif %}
+    </nav>
+  </footer>
+</article>

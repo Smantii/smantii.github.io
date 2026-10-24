@@ -1,0 +1,14 @@
+{%- assign p = include.post -%}
+{%- assign words = p.content | strip_html | number_of_words -%}
+{%- assign minutes = words | plus: 120 | divided_by: 200 | at_least: 1 -%}
+<article class="post-card" data-reveal>
+  <a class="post-card-link" href="{{ p.url | relative_url }}">
+    <p class="eyebrow"><time datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: "%b %-d, %Y" }}</time> · {{ minutes }} min read</p>
+    <h3>{{ p.title }}</h3>
+    {%- if p.description %}<p class="post-card-desc">{{ p.description }}</p>{% endif %}
+    <p class="post-card-foot">
+      {%- if p.tags.size > 0 %}<span class="tags">{% for t in p.tags limit: 3 %}<span class="tag">{{ t }}</span>{% endfor %}</span>{% endif -%}
+      {%- if p.linkedin %}<span class="from-linkedin" title="Extended from a LinkedIn post">{% include icon.liquid name="linkedin" %}</span>{% endif -%}
+    </p>
+  </a>
+</article>

@@ -1,26 +1,43 @@
 ---
-layout: about
+layout: home
 title: About
 permalink: /
-subtitle: <em>"Whatever happens, happens"</em>, Spike Spiegel
+portrait: website_profile.jpg
 
-profile:
-  align: right
-  image: website_profile.jpg
-  image_circular: true # crops the image to make it circular
+eyebrow: Machine Learning Engineer · Scientific ML
+headline: Discovering the <em>equations</em> hidden in data.
+intro: >-
+  I’m Simone Manti, a Machine Learning Engineer with a PhD in Scientific Machine Learning.
+  I build, train and deploy ML systems end to end, and I care most about models that are
+  reliable and interpretable enough to actually ship.
 
-news: true # includes a list of news items
-selected_papers: true # includes a list of papers marked as "selected={true}"
-social: false # includes social icons at the bottom of the page
+facts:
+  - label: Role
+    value: Machine Learning Engineer
+  - label: PhD
+    value: Scientific ML, Aarhus University
+  - label: Open to
+    value: ML roles in Italy
+
+focus:
+  - title: End-to-end ML Systems
+    text: From messy data and feature engineering to training, evaluation and deployment, with code that is clean, typed and tested.
+    tags: [Pipelines, PyTorch, Deployment]
+  - title: Scientific ML & Model Discovery
+    text: Learning models that respect the physics they describe, for turbulent flows, traffic dynamics and materials.
+    tags: [JAX, PDEs, Reduced-order models]
+  - title: Symbolic Regression & Interpretable AI
+    text: Searching the space of equations instead of only the space of weights, to get models you can read, test and trust.
+    tags: [Genetic programming, Interpretability]
+  - title: Agentic AI & HPC
+    text: LLM agents with tool calling, planning, reflection and evals, plus distributed training on HPC clusters.
+    tags: [LLM agents, Slurm, Distributed compute]
 ---
 
-I am a Machine Learning and Computational Physics researcher, currently working as a Machine Learning intern at [Compular](https://compulartech.com) and as a Research Assistant at Aarhus University. I hold a PhD in Mechanical Engineering from Aarhus University and a BSc and MSc in Mathematics from Università di Pisa.
+I’m a Machine Learning Engineer. I build machine learning systems from start to finish: the messy data and feature work up front, then training, validation, and getting models running on high-performance compute.
 
-My research focuses on:
+Most recently I was a Machine Learning Engineer intern at [Compular](https://compulartech.com), where I owned the ML pipelines that predict material and formulation properties for their computational materials simulation platform. Before that I did my PhD in Scientific Machine Learning in the Computational Physics & Machine Learning Lab at [Aarhus University](https://www.au.dk/en/smanti@mpe.au.dk), and stayed on as a Research Assistant. Along the way I was a Visiting Scholar at Virginia Tech. My background is in mathematics: a BSc and an MSc in Applied Mathematics from Università di Pisa.
 
-- Scientific Machine Learning
-- Symbolic Regression & Neuro-Symbolic AI
-- High-Performance Computing
-- Mathematical Modeling and Computational Physics
+I come at ML from two angles: solid production Python on one side, and modeling instincts from years of turning data into equations on the other. I use symbolic regression to find compact, physically meaningful models, and I build the open-source JAX libraries that make that search fast.
 
-When I am not working, I enjoy bouldering and fitness, music, movies and TV series, and tennis.
+After several years of research and work abroad, **I’m now open to ML roles in Italy**, on-site or hybrid. When I’m not working, you’ll find me bouldering, at the gym or on a tennis court, or deep into music and movies.

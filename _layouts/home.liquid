@@ -1,0 +1,121 @@
+---
+layout: default
+---
+<section class="hero" aria-labelledby="hero-title">
+  <canvas class="flow" aria-hidden="true"></canvas>
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <p class="eyebrow" data-reveal>{{ page.eyebrow }}</p>
+      <h1 class="display" id="hero-title" data-reveal>{{ page.headline }}</h1>
+      <p class="lede" data-reveal>{{ page.intro }}</p>
+      <div class="hero-cta" data-reveal>
+        <a class="btn btn--primary" href="{{ '/cv/' | relative_url }}">View my CV {% include icon.liquid name="arrow" %}</a>
+        <a class="btn btn--ghost" href="{{ '/publications/' | relative_url }}">Explore the research</a>
+      </div>
+    </div>
+    <figure class="portrait" data-reveal>
+      <div class="portrait-frame">
+        <img src="{{ '/assets/img/' | append: page.portrait | relative_url }}" alt="Portrait of {{ site.first_name }} {{ site.last_name }}" width="1000" height="1337" fetchpriority="high">
+      </div>
+      <figcaption class="eyebrow">{% include icon.liquid name="pin" %} {{ site.location }}</figcaption>
+    </figure>
+  </div>
+  <div class="wrap hero-foot">
+    <dl class="facts" data-reveal>
+      {%- for fact in page.facts %}
+      <div><dt>{{ fact.label }}</dt><dd>{{ fact.value }}</dd></div>
+      {%- endfor %}
+    </dl>
+    <p class="fig-caption">Fig. 0 — a vortex street, integrated live in your browser.</p>
+  </div>
+</section>
+
+<section class="section" id="about" aria-labelledby="about-title">
+  <div class="wrap split">
+    <header class="section-head" data-reveal>
+      <p class="eyebrow"><span class="num">01</span> About</p>
+      <h2 class="h2" id="about-title">Interpretable models,<br><em>learned from data.</em></h2>
+    </header>
+    <div class="prose prose--lead" data-reveal>
+      {{ content }}
+    </div>
+  </div>
+</section>
+
+<section class="section section--tint" id="focus" aria-labelledby="focus-title">
+  <div class="wrap">
+    <header class="section-head section-head--row" data-reveal>
+      <div>
+        <p class="eyebrow"><span class="num">02</span> Focus</p>
+        <h2 class="h2" id="focus-title">What I work on</h2>
+      </div>
+    </header>
+    <ol class="focus-grid">
+      {%- for item in page.focus %}
+      <li class="focus-card" data-reveal>
+        <span class="focus-index">{{ forloop.index | prepend: '0' }}</span>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.text }}</p>
+        <p class="focus-tags">{{ item.tags | join: ' · ' }}</p>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="section" id="selected" aria-labelledby="selected-title">
+  <div class="wrap">
+    <header class="section-head section-head--row" data-reveal>
+      <div>
+        <p class="eyebrow"><span class="num">03</span> Selected publications</p>
+        <h2 class="h2" id="selected-title">Recent work</h2>
+      </div>
+      <a class="link-arrow" href="{{ '/publications/' | relative_url }}">All publications {% include icon.liquid name="arrow" %}</a>
+    </header>
+    <div class="pubs pubs--selected" data-reveal>
+      {% bibliography --group_by none --query @*[selected=true]* %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--tint" id="writing" aria-labelledby="writing-title">
+  <div class="wrap">
+    <header class="section-head section-head--row" data-reveal>
+      <div>
+        <p class="eyebrow"><span class="num">04</span> Writing</p>
+        <h2 class="h2" id="writing-title">Notes from the lab</h2>
+      </div>
+      <a class="link-arrow" href="{{ '/blog/' | relative_url }}">All posts {% include icon.liquid name="arrow" %}</a>
+    </header>
+    {%- if site.posts.size > 0 %}
+    <div class="post-grid">
+      {%- for post in site.posts limit: 3 %}
+        {% include post-card.liquid post=post %}
+      {%- endfor %}
+    </div>
+    {%- else %}
+    <p class="empty" data-reveal>The first post is on its way.</p>
+    {%- endif %}
+  </div>
+</section>
+
+<section class="section" id="news" aria-labelledby="news-title">
+  <div class="wrap split">
+    <header class="section-head" data-reveal>
+      <p class="eyebrow"><span class="num">05</span> Lately</p>
+      <h2 class="h2" id="news-title">News</h2>
+      <p class="muted">Open source: {% for p in site.data.repositories %}{% if p.featured %}<a href="https://github.com/{{ p.repo }}">{{ p.name }}</a>{% unless forloop.last %}, {% endunless %}{% endif %}{% endfor %} and more on the <a href="{{ '/projects/' | relative_url }}">projects page</a>.</p>
+    </header>
+    <ol class="timeline" data-reveal>
+      {%- assign news = site.news | sort: "date" | reverse -%}
+      {%- for item in news limit: 6 %}
+      <li>
+        <time datetime="{{ item.date | date_to_xmlschema }}">{{ item.date | date: "%b %Y" }}</time>
+        <div>{{ item.content | remove: '<p>' | remove: '</p>' }}</div>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
+{% include contact.liquid %}

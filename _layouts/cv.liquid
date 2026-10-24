@@ -1,117 +1,49 @@
 ---
-layout: default
+layout: page
 ---
-{% unless site.data.resume %}
-  <div class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        {{ page.title }}
-        {% if page.cv_pdf %}
-          <a
-            href="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url}}"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="float-right"
-            ><i class="fa-solid fa-file-pdf"></i
-          ></a>
-        {% endif %}
-      </h1>
-      {% if page.description %}
-        <p class="post-description">{{ page.description }}</p>
-      {% endif %}
-    </header>
-
-    <article>
-      <div class="cv">
-        {% for entry in site.data.cv %}
-          <a class="anchor" id="{{ entry.title }}"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">{{ entry.title }}</h3>
-            <div>
-              {% if entry.type == 'list' %}
-                {% include cv/list.liquid %}
-              {% elsif entry.type == 'map' %}
-                {% include cv/map.liquid %}
-              {% elsif entry.type == 'nested_list' %}
-                {% include cv/nested_list.liquid %}
-              {% elsif entry.type == 'time_table' %}
-                {% include cv/time_table.liquid %}
-              {% elsif entry.type == 'list_groups' %}
-                {% include cv/list_groups.liquid %}
-              {% else %}
-                {{ entry.contents }}
-              {% endif %}
-            </div>
+{%- if site.cv_pdf %}
+<p class="cv-actions"><a class="btn btn--primary" href="{{ site.cv_pdf | relative_url }}">{% include icon.liquid name="file" %} Download CV (PDF)</a></p>
+{%- endif %}
+<div class="cv">
+  {%- for section in site.data.cv %}
+  <section class="cv-section" data-reveal>
+    <h2 class="cv-title eyebrow"><span class="num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span> {{ section.title }}</h2>
+    <div class="cv-content">
+    {%- case section.type -%}
+      {%- when "map" %}
+      <dl class="cv-map">
+        {%- for row in section.contents %}<div><dt>{{ row.name }}</dt><dd>{{ row.value }}</dd></div>{% endfor %}
+      </dl>
+      {%- when "time_table" %}
+      <ol class="cv-list">
+        {%- for item in section.contents %}
+        <li class="cv-item">
+          <p class="cv-year">{{ item.year }}</p>
+          <div>
+            {%- if item.title %}<h3>{{ item.title }}</h3>{% endif %}
+            {%- if item.institution %}<p class="cv-inst">{{ item.institution }}</p>{% endif %}
+            {%- if item.description %}
+              {%- if item.description.first %}
+              <ul>{% for d in item.description %}<li>{{ d }}</li>{% endfor %}</ul>
+              {%- else %}<p>{{ item.description }}</p>{% endif %}
+            {%- endif %}
+            {%- if item.items %}<ul>{% for d in item.items %}<li>{{ d }}</li>{% endfor %}</ul>{% endif %}
           </div>
-        {% endfor %}
+        </li>
+        {%- endfor %}
+      </ol>
+      {%- when "nested_list" %}
+      <div class="cv-nested">
+        {%- for group in section.contents %}
+        <div><h3>{{ group.title }}</h3><p class="tags">{% for i in group.items %}<span class="tag">{{ i }}</span>{% endfor %}</p></div>
+        {%- endfor %}
       </div>
-    </article>
-  </div>
-{% else %}
-  <div class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        {{ page.title }}
-        {% if page.cv_pdf %}
-          <a
-            href="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url}}"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="float-right"
-            ><i class="fa-solid fa-file-pdf"></i
-          ></a>
-        {% endif %}
-      </h1>
-      {% if page.description %}
-        <p class="post-description">{{ page.description }}</p>
-      {% endif %}
-    </header>
-
-    <article>
-      <div class="cv">
-        {% for data in site.data.resume %}
-          {% if site.jsonresume and site.jsonresume.size > 0 %}
-            {% unless site.jsonresume contains data[0] %}
-              {% continue %}
-            {% endunless %}
-          {% endif %}
-          {% if data[0] == 'meta' or data[1].size == 0 %} {% continue %} {% endif %}
-          <a class="anchor" id="{{ data[0] }}"></a>
-          <div class="card mt-3 p-3">
-            <h3 class="card-title font-weight-medium">{{ data[0] | capitalize }}</h3>
-            <div>
-              {% case data[0] %}
-                {% when 'basics' %}
-                  {% include resume/basics.liquid %}
-                {% when 'education' %}
-                  {% include resume/education.liquid %}
-                {% when 'work' %}
-                  {% include resume/work.liquid %}
-                {% when 'volunteer' %}
-                  {% include resume/volunteer.liquid %}
-                {% when 'projects' %}
-                  {% include resume/projects.liquid %}
-                {% when 'awards' %}
-                  {% include resume/awards.liquid %}
-                {% when 'skills' %}
-                  {% include resume/skills.liquid %}
-                {% when 'publications' %}
-                  {% include resume/publications.liquid %}
-                {% when 'languages' %}
-                  {% include resume/languages.liquid %}
-                {% when 'interests' %}
-                  {% include resume/interests.liquid %}
-                {% when 'certificates' %}
-                  {% include resume/certificates.liquid %}
-                {% when 'references' %}
-                  {% include resume/references.liquid %}
-                {% else %}
-
-              {% endcase %}
-            </div>
-          </div>
-        {% endfor %}
-      </div>
-    </article>
-  </div>
-{% endunless %}
+      {%- when "text" %}
+      <p class="cv-text">{{ section.contents }}</p>
+      {%- when "list" %}
+      <ul class="cv-plain">{% for i in section.contents %}<li>{{ i }}</li>{% endfor %}</ul>
+    {%- endcase %}
+    </div>
+  </section>
+  {%- endfor %}
+</div>

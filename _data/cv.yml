@@ -1,104 +1,149 @@
+- title: Profile
+  type: text
+  contents: >-
+    I build machine learning systems from start to finish: the messy data and feature work up front,
+    then training, validation, and getting models running on high-performance compute. I come at it
+    from two angles: solid production Python on one side, and modeling instincts from a PhD in
+    Scientific ML and a Master's in Applied Mathematics on the other. I write clean, well-tested code,
+    and I care most about ML that's <strong>reliable and interpretable</strong> enough to actually ship,
+    not just work once in a notebook.
+
 - title: General Information
   type: map
   contents:
     - name: Full Name
       value: Simone Manti
+    - name: Role
+      value: Machine Learning Engineer
+    - name: Based in
+      value: Aarhus, Denmark · open to roles in Italy (on-site or hybrid)
     - name: Languages
-      value: Italian (Native), English (Fluent), Danish (Basic)
-
-- title: Education
-  type: time_table
-  contents:
-    - title: PhD in Mechanical Engineering
-      institution: Aarhus University, Aarhus, Denmark
-      year: 2023-2025
-      description:
-        - Scientific Machine Learning, Symbolic Regression, and Computational Physics.
-        - Publishing in prestigious journals and conferences (Journal of Computational Physics, NeurIPS workshops).
-    - title: MSc in Mathematics
-      institution: Università di Pisa, Pisa, Italy
-      year: 2020-2022
-      description:
-        - Applied Mathematics.
-    - title: BSc in Mathematics
-      institution: Università di Pisa, Pisa, Italy
-      year: 2017-2020
-      description:
-        - Pure Mathematics.
+      value: Italian (Native), English (Fluent), Danish (Intermediate)
 
 - title: Experience
   type: time_table
   contents:
-    - title: Machine Learning for Computational Material Science Intern
-      institution: Compular
-      year: Mar. 2026 - Present
+    - title: Machine Learning Engineer (Intern)
+      institution: Compular · Computational Materials Science
+      year: Mar. 2026 – Jun. 2026
       description:
-        - Design, implementation and benchmarking of machine learning pipelines for predicting material and formulation properties.
-        - Main responsible of the machine learning pipelines in support of Compular's computational materials simulation platform.
+        - Owned the design, implementation, and benchmarking of ML pipelines predicting material and formulation properties.
+        - "Shipped the ML systems powering Compular's computational materials simulation platform: model training, evaluation, and integration with the broader product."
     - title: Research Assistant
-      institution: Computational Physics and Machine Learning Lab, Aarhus University
-      year: Oct. 2025 - Jun. 2026
+      institution: Computational Physics & Machine Learning Lab, Aarhus University
+      year: Oct. 2025 – Jun. 2026
       description:
-        - Design and implementation of novel data-driven model discovery algorithms to advance the state-of-the-art of Scientific Machine Learning.
-        - Design and development of high-performance Python libraries for Scientific Machine Learning.
-    - title: PhD Student
-      institution: Computational Physics and Machine Learning Lab, Aarhus University
-      year: Jan. 2023 - Sep. 2025
+        - Engineered data-driven model discovery algorithms and the pipelines they run on — training, hyperparameter search, and evaluation at HPC scale.
+        - Developed and maintained high-performance, well-tested Python libraries (JAX-based) used by the lab and the wider open-source community.
+    - title: Ph.D. Student
+      institution: Computational Physics & Machine Learning Lab, Aarhus University
+      year: Jan. 2023 – Sep. 2025
       description:
-        - Developing Scientific Machine Learning methods combining symbolic regression and discrete mathematics.
-        - Designing and discovering interpretable models for turbulent flows, traffic modeling, and multiscale PDEs.
-        - Leveraging Python, JAX, and HPC workflows to scale experiments and accelerate simulations.
-        - Building and maintaining open-source Python libraries for model discovery and numerical simulation.
+        - Built end-to-end ML training pipelines combining symbolic regression with genetic programming, scaled across HPC clusters.
+        - Trained, validated, and benchmarked interpretable models for turbulent flows, traffic dynamics, and multiscale PDEs against real-world data.
+        - Designed reusable, type-checked, well-tested Python libraries, cutting runtime by orders of magnitude via JAX JIT/vmap and HPC-friendly workflows.
+        - Published in the Journal of Computational Physics and NeurIPS workshops; maintained four open-source repositories.
     - title: Visiting Scholar
       institution: Department of Mathematics, Virginia Tech
-      year: Oct. 2024 - Dec. 2024
+      year: Oct. 2024 – Dec. 2024
       description:
-        - Worked on Data-Driven Reduced-Order Modeling for convection-dominated flows.
-        - Strengthened expertise in physical simulation and interpretable ML with world-renowned collaborators.
+        - Engineered data-driven reduced-order ML models for convection-dominated flows, collaborating with a top-tier research group.
+        - Translated cross-team requirements into shipped code and reproducible experiments.
+
+- title: Education
+  type: time_table
+  contents:
+    - title: Ph.D., Mechanical Engineering
+      institution: Aarhus University, Aarhus, Denmark
+      year: 2023 – 2025
+      description:
+        - Scientific Machine Learning, symbolic regression and model discovery.
+        - "Thesis: Model Discovery via Symbolic Regression with Applications to Fluid Transport Problems."
+    - title: M.Sc., Mathematics
+      institution: Università di Pisa, Pisa, Italy
+      year: 2020 – 2022
+      description:
+        - Applied Mathematics.
+    - title: B.Sc., Mathematics
+      institution: Università di Pisa, Pisa, Italy
+      year: 2017 – 2020
+
+- title: Skills
+  type: nested_list
+  contents:
+    - title: Core skills
+      items:
+        - "ML pipelines: training, eval, deployment"
+        - Deep learning & classical ML
+        - "Agentic AI: LLM tool use, planning, multi-agent workflows"
+        - Data preprocessing & feature engineering
+        - Distributed training on HPC
+        - Symbolic regression & model discovery
+        - Mathematical modeling & numerical methods
+    - title: Strengths
+      items:
+        - Owning ML systems end-to-end
+        - Writing clean, performant, well-tested code
+        - Cross-team collaboration & technical communication
+
+- title: Stack
+  type: map
+  contents:
+    - name: Python
+      value: JAX, PyTorch, NumPy, Pandas, scikit-learn
+    - name: HPC
+      value: Slurm, job scheduling, distributed compute
+    - name: LLMs
+      value: Building agents with tool calling, reflection, and evals
+    - name: Tooling
+      value: Git, Conda, pytest, type hints
+    - name: Also
+      value: MATLAB, R, C
 
 - title: Open Source Projects
   type: time_table
   contents:
     - title: <a href="https://github.com/cpml-au/Flex">Flex</a>
-      year: 2023-now
-      description: A flexible, genetic programming-based symbolic regression library built on DEAP and JAX.
+      year: 2023 – now
+      description: Symbolic regression library based on genetic programming and JAX.
     - title: <a href="https://github.com/cpml-au/dctkit">dctkit</a>
-      year: 2022-now
-      description: A toolkit for discrete calculus enabling physical modeling on complex geometries.
+      year: 2022 – now
+      description: Discrete calculus toolkit enabling physical modeling on complex geometries.
     - title: <a href="https://github.com/cpml-au/SR-ROM-ConvectionDominatedFlows">SR-ROM</a>
-      year: 2024-2025
-      description: Symbolic closures for high-Reynolds number flow simulations.
+      year: 2024 – 2025
+      description: Symbolic closures for high-Reynolds-number flow simulations.
     - title: <a href="https://github.com/cpml-au/SR-Traffic">SR-Traffic</a>
       year: 2025
       description: Framework discovering phenomenological laws for traffic flow directly from data.
 
-- title: Other Experiences
+- title: Certifications
   type: time_table
   contents:
-    - year: 2023-now
+    - title: Agentic AI
+      institution: DeepLearning.AI (Andrew Ng)
+      year: Oct. 2026
+    - title: M2L Summer School
+      institution: Google, Meta, Mistral AI
+      year: Sep. 2024
+    - title: Simulation & Modeling of Natural Processes
+      institution: Coursera
+      year: Sep. 2023
+
+- title: Other Activities
+  type: time_table
+  contents:
+    - year: 2023 – now
       items:
-        - Reviewer for GECCO, NeurIPS Workshop ML4PS, Philosophical Transactions of the Royal Society A
-        - Teaching Assistant, Data Science, Aarhus University
-        - Co-supervision of MSc students
+        - "Reviewer: GECCO, NeurIPS Workshop ML4PS, Philosophical Transactions of the Royal Society A"
+        - "Teaching Assistant: Data Science, Aarhus University"
+        - Co-supervision of M.Sc. students
     - year: 2023
       items:
-        - Finalist in scientific communication (3 Minute Thesis)
+        - Finalist, scientific communication (3 Minute Thesis)
 
-- title: Academic Interests
-  type: nested_list
-  contents:
-    - title: Scientific Machine Learning
-      items:
-        - Symbolic Regression
-        - Model Discovery
-        - Neuro-Symbolic AI
-    - title: Computational Physics
-      items:
-        - Reduced-Order Modeling
-        - Discrete Exterior Calculus
-        - Turbulence and Traffic Modeling
-
-- title: Other Interests
-  type: list
-  contents:
-    - <u>Hobbies:</u> Bouldering & Fitness, Music, Movies & TV Series, Tennis
+- title: About Me
+  type: text
+  contents: >-
+    A naturally curious person who enjoys learning new skills and approaching challenges with dedication.
+    I value the balance between focused work and an active life: bouldering, fitness, music, tennis, and movies.
+    After several years of research and work abroad, I am now open to roles in Italy, both on-site and hybrid.

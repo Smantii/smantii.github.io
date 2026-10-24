@@ -1,0 +1,52 @@
+---
+layout: page
+permalink: /blog/
+title: Writing
+heading: Writing
+eyebrow: Blog
+description: The long versions of what I share on LinkedIn. Notes on scientific machine learning, symbolic regression, and life in research.
+---
+
+{%- if site.posts.size > 0 %}
+{%- assign featured = site.posts.first %}
+{%- assign words = featured.content | strip_html | number_of_words -%}
+<a class="post-feature" href="{{ featured.url | relative_url }}" data-reveal>
+  <p class="eyebrow">Latest · <time datetime="{{ featured.date | date_to_xmlschema }}">{{ featured.date | date: "%B %-d, %Y" }}</time> · {{ words | plus: 120 | divided_by: 200 | at_least: 1 }} min read</p>
+  <h2>{{ featured.title }}</h2>
+  {%- if featured.description %}<p class="lede">{{ featured.description }}</p>{% endif %}
+  <span class="link-arrow">Read post {% include icon.liquid name="arrow" %}</span>
+</a>
+
+<div class="archive">
+{%- assign by_year = site.posts | group_by_exp: "p", "p.date | date: '%Y'" -%}
+{%- for year in by_year %}
+  <section class="archive-year" data-reveal>
+    <h2 class="archive-label">{{ year.name }}</h2>
+    <ol class="archive-list">
+      {%- for p in year.items %}
+      <li>
+        <a href="{{ p.url | relative_url }}">
+          <time datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: "%b %-d" }}</time>
+          <span class="archive-title">{{ p.title }}</span>
+          {%- if p.linkedin %}<span class="from-linkedin" title="Extended from a LinkedIn post">{% include icon.liquid name="linkedin" %}</span>{% endif %}
+        </a>
+      </li>
+      {%- endfor %}
+    </ol>
+  </section>
+{%- endfor %}
+</div>
+{%- else %}
+<p class="empty">The first post is on its way. Meanwhile, <a href="https://www.linkedin.com/in/{{ site.social.linkedin }}">follow me on LinkedIn</a>.</p>
+{%- endif %}
+
+<aside class="subscribe" data-reveal>
+  <div>
+    <p class="eyebrow">Stay in the loop</p>
+    <p>Follow along on LinkedIn, or subscribe to the RSS feed.</p>
+  </div>
+  <div class="hero-cta">
+    <a class="btn btn--primary" href="https://www.linkedin.com/in/{{ site.social.linkedin }}">{% include icon.liquid name="linkedin" %} Follow</a>
+    <a class="btn btn--ghost" href="{{ '/blog/feed.xml' | relative_url }}">{% include icon.liquid name="rss" %} RSS</a>
+  </div>
+</aside>

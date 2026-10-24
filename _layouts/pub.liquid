@@ -1,0 +1,43 @@
+---
+---
+{%- assign venue_full = entry.journal | default: entry.booktitle | default: entry.school -%}
+{%- if entry.type == "phdthesis" -%}{%- assign venue_full = "PhD Thesis, " | append: entry.school -%}{%- endif -%}
+<article class="pub" id="{{ entry.key }}">
+  {%- if entry.preview %}
+  <div class="pub-figure">
+    <img src="{{ entry.preview | prepend: '/assets/img/publication_preview/' | relative_url }}" alt="Figure from “{{ entry.title | strip_html }}”" loading="lazy" decoding="async">
+  </div>
+  {%- endif %}
+  <div class="pub-body">
+    <p class="pub-venue eyebrow">{{ entry.venue | default: venue_full }}<span class="pub-year"> · {{ entry.year }}</span></p>
+    <h3 class="pub-title">{{ entry.title }}</h3>
+    <p class="pub-authors">
+      {%- for author in entry.author_array -%}
+        {%- assign is_me = false -%}
+        {%- if site.scholar.last_name contains author.last and site.scholar.first_name contains author.first -%}{%- assign is_me = true -%}{%- endif -%}
+        {%- assign coauthor_key = author.last | remove_accents | downcase -%}
+        {%- assign coauthor = site.data.coauthors[coauthor_key] | first -%}
+        {%- if forloop.length > 1 and forloop.last %} &amp; {% elsif forloop.index > 1 %}, {% endif -%}
+        {%- if is_me -%}<span class="me">{{ author.first }} {{ author.last }}</span>
+        {%- elsif coauthor and coauthor.firstname contains author.first -%}<a href="{{ coauthor.url }}">{{ author.first }} {{ author.last }}</a>
+        {%- else -%}{{ author.first }} {{ author.last }}{%- endif -%}
+      {%- endfor -%}
+    </p>
+    {%- if entry.venue %}<p class="pub-meta">{{ venue_full }}{% if entry.volume %}, {{ entry.volume }}{% endif %}{% if entry.number %}({{ entry.number }}){% endif %}{% if entry.pages %}, {{ entry.pages }}{% endif %}</p>{% endif %}
+    <div class="pub-links">
+      {%- if entry.html %}<a class="chip" href="{{ entry.html }}">{% include icon.liquid name="arrow-up-right" %}Paper</a>{% endif -%}
+      {%- if entry.pdf %}<a class="chip" href="{{ entry.pdf }}">{% include icon.liquid name="file" %}{% if entry.html %}PDF{% else %}Paper{% endif %}</a>{% endif -%}
+      {%- if entry.arxiv %}<a class="chip" href="https://arxiv.org/abs/{{ entry.arxiv }}">{% include icon.liquid name="file" %}arXiv</a>{% endif -%}
+      {%- if entry.code %}<a class="chip" href="{{ entry.code }}">{% include icon.liquid name="code" %}Code</a>{% endif -%}
+      {%- if entry.bibtex_show %}
+      <details class="bibtex">
+        <summary class="chip">{% include icon.liquid name="quote" %}BibTeX</summary>
+        <div class="bibtex-box">
+          <button class="copy-btn" type="button" data-copy>Copy</button>
+          <pre><code>{{ entry.bibtex | hideCustomBibtex | xml_escape }}</code></pre>
+        </div>
+      </details>
+      {%- endif %}
+    </div>
+  </div>
+</article>

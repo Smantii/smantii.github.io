@@ -2,9 +2,7 @@
 layout: cv
 permalink: /cv/
 title: CV
-nav: true
-nav_order: 5
-description:
-toc:
-  sidebar: left
+heading: Curriculum Vitae
+eyebrow: CV
+description: Education, experience, open-source work and the occasional thing I do for fun.
 ---
