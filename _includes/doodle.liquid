@@ -1,0 +1,33 @@
+{%- comment -%}
+  Hand-drawn style doodles. Usage: {% include doodle.liquid name="sparkle" class="..." %}
+  Strokes use currentColor; fills use var(--fill, none).
+{%- endcomment -%}
+{%- capture cls %}doodle doodle--{{ include.name }} {{ include.class }}{% endcapture -%}
+{%- case include.name -%}
+{%- when "sparkle" -%}
+<svg class="{{ cls }}" viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M24 4c1.6 9.4 5.6 13.6 16 16-10.4 2.4-14.4 6.6-16 16-1.6-9.4-5.6-13.6-16-16 10.4-2.4 14.4-6.6 16-16Z" fill="var(--fill, none)"/></svg>
+{%- when "star" -%}
+<svg class="{{ cls }}" viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m24 5 5.6 11.8 12.9 1.6-9.5 8.9 2.5 12.8L24 33.8 12.5 40.1l2.5-12.8-9.5-8.9 12.9-1.6Z" fill="var(--fill, none)"/></svg>
+{%- when "squiggle" -%}
+<svg class="{{ cls }}" viewBox="0 0 120 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M4 14c8-10 16-10 24 0s16 10 24 0 16-10 24 0 16 10 24 0 12-8 16-4"/></svg>
+{%- when "loop" -%}
+<svg class="{{ cls }}" viewBox="0 0 80 60" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path pathLength="1" d="M4 50c14-2 24-10 28-22 3-9-2-18-10-15-9 3-6 20 6 25 14 6 30-2 40-14 4-5 6-10 6-14"/><path d="m66 4 8 6-9 4"/></svg>
+{%- when "circle" -%}
+<svg class="{{ cls }}" viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M38 12C33 5 18 4 10 13 3 21 6 37 18 41c12 4 25-3 26-15 1-6-2-11-6-14" fill="var(--fill, none)"/></svg>
+{%- when "dots" -%}
+<svg class="{{ cls }}" viewBox="0 0 48 48" aria-hidden="true" fill="currentColor"><circle cx="8" cy="8" r="3.5"/><circle cx="24" cy="8" r="3.5"/><circle cx="40" cy="8" r="3.5"/><circle cx="8" cy="24" r="3.5"/><circle cx="24" cy="24" r="3.5"/><circle cx="40" cy="24" r="3.5"/><circle cx="8" cy="40" r="3.5"/><circle cx="24" cy="40" r="3.5"/><circle cx="40" cy="40" r="3.5"/></svg>
+{%- when "pipeline" -%}
+<svg class="{{ cls }}" viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="9" width="18" height="16" rx="4" fill="var(--fill, none)"/><rect x="41" y="9" width="18" height="16" rx="4" fill="var(--fill, none)"/><rect x="23" y="39" width="18" height="16" rx="4" fill="var(--fill, none)"/><path d="M23 17h18M50 25v6c0 4-3 6-6 8h-3M14 25v6c0 4 3 6 6 8h3"/></svg>
+{%- when "wave" -%}
+<svg class="{{ cls }}" viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="32" r="7" fill="var(--fill, none)"/><path d="M4 18c10-6 18 4 28-2s18-6 28 0M26 32c8-6 14 4 22-2 4-3 8-3 12 0M4 46c10-6 18 4 28-2s18-6 28 0"/></svg>
+{%- when "tree" -%}
+<svg class="{{ cls }}" viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="11" r="7" fill="var(--fill, none)"/><circle cx="15" cy="37" r="7" fill="var(--fill, none)"/><circle cx="49" cy="37" r="7" fill="var(--fill, none)"/><circle cx="38" cy="56" r="5"/><circle cx="58" cy="56" r="4"/><path d="m27 16-8 15M37 16l8 15M46 43l-6 9M52 43l4 9"/><path d="M29 9h6M32 6v6" stroke-width="2.5"/></svg>
+{%- when "agent" -%}
+<svg class="{{ cls }}" viewBox="0 0 64 64" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="18" width="44" height="32" rx="10" fill="var(--fill, none)"/><path d="M32 18V9"/><circle cx="32" cy="7" r="3"/><circle cx="24" cy="33" r="3.5" fill="currentColor"/><circle cx="40" cy="33" r="3.5" fill="currentColor"/><path d="M26 42c4 3 8 3 12 0M10 30H5v10h5M54 30h5v10h-5"/></svg>
+{%- when "shard" -%}
+<svg class="{{ cls }}" viewBox="0 0 64 64" aria-hidden="true" fill="var(--fill, none)" stroke="currentColor" stroke-width="3" stroke-linejoin="miter"><path d="M6 40 30 4l6 22 22-6-20 40-4-20Z"/></svg>
+{%- when "slash" -%}
+<svg class="{{ cls }}" viewBox="0 0 120 40" aria-hidden="true" fill="currentColor"><path d="M10 34 70 4h40L50 34Z"/><path d="M0 40 20 30h30L30 40Z" opacity=".6"/></svg>
+{%- when "burst" -%}
+<svg class="{{ cls }}" viewBox="0 0 64 64" aria-hidden="true" fill="var(--fill, none)" stroke="currentColor" stroke-width="3" stroke-linejoin="miter"><path d="m32 2 6 18 18-8-10 16 16 8-18 4 6 18-18-10-10 16-2-18-18 2 14-12L2 24l20-2-4-16 14 14Z"/></svg>
+{%- endcase -%}

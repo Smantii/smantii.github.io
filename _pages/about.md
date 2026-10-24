@@ -21,15 +21,23 @@ facts:
 
 focus:
   - title: End-to-end ML Systems
+    icon: pipeline
+    color: navy
     text: From messy data and feature engineering to training, evaluation and deployment, with code that is clean, typed and tested.
     tags: [Pipelines, PyTorch, Deployment]
   - title: Scientific ML & Model Discovery
+    icon: wave
+    color: cyan
     text: Learning models that respect the physics they describe, for turbulent flows, traffic dynamics and materials.
     tags: [JAX, PDEs, Reduced-order models]
   - title: Symbolic Regression & Interpretable AI
+    icon: tree
+    color: ice
     text: Searching the space of equations instead of only the space of weights, to get models you can read, test and trust.
     tags: [Genetic programming, Interpretability]
   - title: Agentic AI & HPC
+    icon: agent
+    color: sky
     text: LLM agents with tool calling, planning, reflection and evals, plus distributed training on HPC clusters.
     tags: [LLM agents, Slurm, Distributed compute]
 ---

@@ -10,7 +10,7 @@ description: The long versions of what I share on LinkedIn. Notes on scientific 
 {%- if site.posts.size > 0 %}
 {%- assign featured = site.posts.first %}
 {%- assign words = featured.content | strip_html | number_of_words -%}
-<a class="post-feature" href="{{ featured.url | relative_url }}" data-reveal>
+<a class="post-feature tilt" href="{{ featured.url | relative_url }}" data-reveal>
   <p class="eyebrow">Latest · <time datetime="{{ featured.date | date_to_xmlschema }}">{{ featured.date | date: "%B %-d, %Y" }}</time> · {{ words | plus: 120 | divided_by: 200 | at_least: 1 }} min read</p>
   <h2>{{ featured.title }}</h2>
   {%- if featured.description %}<p class="lede">{{ featured.description }}</p>{% endif %}

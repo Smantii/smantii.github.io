@@ -1,12 +1,17 @@
 <section class="contact" id="contact" aria-labelledby="contact-title">
-  <div class="wrap contact-inner" data-reveal>
-    <p class="eyebrow">Get in touch</p>
-    <h2 class="display display--md" id="contact-title">Let’s talk equations, <em>data</em>, or bouldering.</h2>
-    <p class="lede">{{ site.contact_note }} Discord: <strong>{{ site.social.discord }}</strong>.</p>
-    <div class="hero-cta">
-      <a class="btn btn--primary" href="mailto:{{ site.email | encode_email }}">{% include icon.liquid name="mail" %} {{ site.email }}</a>
-      <a class="btn btn--ghost" href="https://www.linkedin.com/in/{{ site.social.linkedin }}">{% include icon.liquid name="linkedin" %} Connect on LinkedIn</a>
+  <div class="wrap contact-wrap">
+    <div class="contact-card" data-reveal>
+      {% include doodle.liquid name="burst" class="float float--a contact-doodle contact-doodle--1" %}
+      {% include doodle.liquid name="sparkle" class="float float--b contact-doodle contact-doodle--2" %}
+      {% include doodle.liquid name="slash" class="contact-doodle contact-doodle--3" %}
+      <p class="eyebrow sticker">Get in touch</p>
+      <h2 class="display display--md" id="contact-title">Let’s build something <em class="scribble">together</em>.</h2>
+      <p class="lede">{{ site.contact_note }} Discord: <strong>{{ site.social.discord }}</strong>.</p>
+      <div class="hero-cta">
+        <a class="btn btn--primary" href="mailto:{{ site.email | encode_email }}">{% include icon.liquid name="mail" %} {{ site.email }}</a>
+        <a class="btn btn--ghost" href="https://www.linkedin.com/in/{{ site.social.linkedin }}">{% include icon.liquid name="linkedin" %} Connect on LinkedIn</a>
+      </div>
+      {% include social.liquid labels=true all=true class="social--labels" %}
     </div>
-    {% include social.liquid labels=true all=true class="social--labels" %}
   </div>
 </section>

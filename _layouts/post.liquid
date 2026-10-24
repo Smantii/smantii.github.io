@@ -6,13 +6,14 @@ layout: default
 <article class="article" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-hero">
   <canvas class="flow flow--band" aria-hidden="true"></canvas>
+  {% include doodle.liquid name="sparkle" class="float float--a page-doodle page-doodle--1" %}
   <header class="article-head wrap wrap--narrow">
     <a class="back-link" href="{{ '/blog/' | relative_url }}">{% include icon.liquid name="arrow-left" %} All writing</a>
     <p class="eyebrow">
       <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%B %-d, %Y" }}</time>
       · {{ minutes }} min read
     </p>
-    <h1 class="display display--md" itemprop="headline">{{ page.title }}</h1>
+    <h1 class="display display--md" itemprop="headline" data-split>{{ page.title }}</h1>
     {%- if page.description %}<p class="lede" itemprop="description">{{ page.description }}</p>{% endif %}
     {%- if page.tags.size > 0 %}
     <p class="tags">{% for t in page.tags %}<span class="tag">{{ t }}</span>{% endfor %}</p>
@@ -43,7 +44,7 @@ layout: default
       <img src="{{ '/assets/img/website_profile.jpg' | relative_url }}" alt="" width="64" height="64" loading="lazy">
       <div>
         <p class="author-name">{{ site.first_name }} {{ site.last_name }}</p>
-        <p class="muted">{{ site.role }}. I write here about scientific ML, symbolic regression and research life.</p>
+        <p class="muted">{{ site.role }}. I write here about machine learning, AI and what I learn building real systems.</p>
       </div>
     </div>
     <div class="article-actions">

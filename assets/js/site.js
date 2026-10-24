@@ -147,6 +147,161 @@
     if (code) copyText(btn, code.innerText.trim());
   });
 
+  /* ---------- Page transitions: Persona-style diagonal bands ---------- */
+
+  var wipe = document.querySelector(".wipe");
+  var wipeLabel = document.querySelector(".wipe-label");
+  var arriving = root.classList.contains("arriving");
+
+  // Colour and name of each section, read from the nav (e.g. "/blog/" -> "ice", "Writing").
+  var sections = [];
+  document.querySelectorAll(".nav-link[data-color]").forEach(function (a) {
+    sections.push({ path: a.pathname, color: a.getAttribute("data-color"), label: a.textContent.trim() });
+  });
+
+  function sectionFor(link) {
+    for (var i = 0; i < sections.length; i++) {
+      if (link.pathname.indexOf(sections[i].path) === 0) return sections[i];
+    }
+    return { color: "navy", label: link.pathname === "/" ? "Home" : link.textContent.trim().slice(0, 24) };
+  }
+
+  function isInternalNavigation(e, a) {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return false;
+    if (a.target && a.target !== "_self") return false;
+    if (a.hasAttribute("download") || a.origin !== location.origin) return false;
+    if (/\.(xml|pdf|ico|png|jpe?g|svg)$/i.test(a.pathname)) return false;
+    // Same page (or just a #hash): let the browser scroll.
+    if (a.pathname === location.pathname && a.search === location.search) return false;
+    return true;
+  }
+
+  if (wipe && !reduceMotion.matches) {
+    document.addEventListener("click", function (e) {
+      var a = e.target.closest ? e.target.closest("a[href]") : null;
+      if (!a || !isInternalNavigation(e, a)) return;
+      e.preventDefault();
+      var section = sectionFor(a);
+      var color = a.getAttribute("data-color") || section.color;
+      root.setAttribute("data-wipe", color);
+      if (wipeLabel) wipeLabel.textContent = section.label;
+      wipe.setAttribute("data-state", "in");
+      try {
+        sessionStorage.setItem("wipe", color);
+        sessionStorage.setItem("wipeLabel", section.label);
+      } catch (err) {}
+      setTimeout(function () {
+        location.href = a.href;
+      }, 640);
+    });
+  }
+
+  function uncover() {
+    if (!wipe) return;
+    requestAnimationFrame(function () {
+      setTimeout(function () {
+        wipe.setAttribute("data-state", "out");
+        root.classList.remove("arriving");
+        setTimeout(function () {
+          wipe.removeAttribute("data-state");
+        }, 900);
+      }, 120);
+    });
+  }
+
+  if (arriving) uncover();
+
+  // Coming back via the back button restores the page with the wipe still drawn.
+  window.addEventListener("pageshow", function (e) {
+    if (e.persisted && wipe && wipe.getAttribute("data-state") === "in") uncover();
+  });
+
+  /* ---------- Headlines that pop in word by word ---------- */
+
+  function splitWords(el) {
+    var index = 0;
+    function walk(node) {
+      Array.prototype.slice.call(node.childNodes).forEach(function (child) {
+        if (child.nodeType === 3) {
+          var parts = child.textContent.split(/(\s+)/);
+          var frag = document.createDocumentFragment();
+          parts.forEach(function (part) {
+            if (!part) return;
+            if (/^\s+$/.test(part)) {
+              frag.appendChild(document.createTextNode(part));
+            } else {
+              var span = document.createElement("span");
+              span.className = "word";
+              span.style.setProperty("--i", index++);
+              span.textContent = part;
+              frag.appendChild(span);
+            }
+          });
+          node.replaceChild(frag, child);
+        } else if (child.nodeType === 1 && child.tagName !== "BR") {
+          walk(child);
+        }
+      });
+    }
+    walk(el);
+  }
+
+  document.querySelectorAll("[data-split]").forEach(function (el) {
+    splitWords(el);
+    setTimeout(
+      function () {
+        el.classList.add("is-in");
+      },
+      arriving ? 520 : 60
+    );
+  });
+
+  /* ---------- Cards that tilt toward the cursor ---------- */
+
+  if (!reduceMotion.matches) {
+    document.querySelectorAll(".tilt").forEach(function (card) {
+      card.addEventListener("pointermove", function (e) {
+        if (e.pointerType !== "mouse") return;
+        var r = card.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width - 0.5;
+        var y = (e.clientY - r.top) / r.height - 0.5;
+        card.classList.add("is-tilting");
+        card.style.setProperty("--rx", (x * 10).toFixed(2));
+        card.style.setProperty("--ry", (-y * 10).toFixed(2));
+      });
+      card.addEventListener("pointerleave", function () {
+        card.classList.remove("is-tilting");
+        card.style.setProperty("--rx", 0);
+        card.style.setProperty("--ry", 0);
+      });
+    });
+  }
+
+  /* ---------- Cartoon click bursts ---------- */
+
+  var burstColors = ["var(--cyan)", "var(--ink)", "var(--cyan)", "#ffffff", "var(--navy)"];
+  if (!reduceMotion.matches) {
+    document.addEventListener("pointerdown", function (e) {
+      if (!e.target.closest || !e.target.closest("a, button, summary")) return;
+      var burst = document.createElement("span");
+      burst.className = "burst";
+      burst.style.left = e.clientX + "px";
+      burst.style.top = e.clientY + "px";
+      var n = 8;
+      var offset = Math.random() * 45;
+      for (var i = 0; i < n; i++) {
+        var ray = document.createElement("i");
+        ray.style.setProperty("--a", offset + (360 / n) * i + "deg");
+        ray.style.setProperty("--c", burstColors[i % burstColors.length]);
+        burst.appendChild(ray);
+      }
+      document.body.appendChild(burst);
+      setTimeout(function () {
+        burst.remove();
+      }, 650);
+    });
+  }
+
   /* ---------- Hero: a live von Kármán vortex street ---------- */
 
   document.querySelectorAll("canvas.flow").forEach(function (canvas) {
@@ -177,7 +332,7 @@
     var pointer = { x: -1e4, y: -1e4, g: 0, sign: 1 };
 
     function readColor() {
-      var c = getComputedStyle(root).getPropertyValue("--flow").trim();
+      var c = getComputedStyle(canvas).getPropertyValue("--flow").trim();
       if (c) color = c.split(/\s+/).join(",");
     }
 
@@ -277,7 +432,7 @@
     var BUCKETS = 4;
     function draw() {
       ctx.clearRect(0, 0, W, H);
-      ctx.lineWidth = 1.1;
+      ctx.lineWidth = 1.5;
       ctx.lineCap = "round";
       for (var b = 0; b < BUCKETS; b++) {
         ctx.beginPath();

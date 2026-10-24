@@ -9,7 +9,7 @@ description: Libraries and research code I build and maintain, mostly at the <a 
 
 <div class="project-grid">
 {%- for p in site.data.repositories %}
-  <a class="project-card" href="https://github.com/{{ p.repo }}" data-reveal>
+  <a class="project-card tilt" href="https://github.com/{{ p.repo }}" data-reveal>
     <div class="project-top">
       <span class="project-icon">{% include icon.liquid name="github" %}</span>
       {%- if p.years %}<span class="eyebrow">{{ p.years }}</span>{% endif %}

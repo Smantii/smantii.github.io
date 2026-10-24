@@ -2,7 +2,7 @@
 {%- assign words = p.content | strip_html | number_of_words -%}
 {%- assign minutes = words | plus: 120 | divided_by: 200 | at_least: 1 -%}
 <article class="post-card" data-reveal>
-  <a class="post-card-link" href="{{ p.url | relative_url }}">
+  <a class="post-card-link tilt" href="{{ p.url | relative_url }}">
     <p class="eyebrow"><time datetime="{{ p.date | date_to_xmlschema }}">{{ p.date | date: "%b %-d, %Y" }}</time> · {{ minutes }} min read</p>
     <h3>{{ p.title }}</h3>
     {%- if p.description %}<p class="post-card-desc">{{ p.description }}</p>{% endif %}

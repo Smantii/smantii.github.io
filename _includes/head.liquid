@@ -20,8 +20,8 @@
 <meta property="og:image" content="{{ page.image | default: '/assets/img/website_profile.jpg' | absolute_url }}">
 <meta name="twitter:card" content="summary">
 
-<meta name="theme-color" content="#f6f4ee" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0d0e11" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#dcf2ff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#050d2b" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="{{ '/favicon.ico' | relative_url }}?v=2" sizes="48x48">
 <link rel="icon" type="image/svg+xml" href="{{ '/assets/img/favicon.svg' | relative_url | bust_file_cache }}">
 <link rel="apple-touch-icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url | bust_file_cache }}">
@@ -35,15 +35,26 @@
       var t = localStorage.getItem("theme");
       if (t === "dark" || t === "light") d.setAttribute("data-theme", t);
     } catch (e) {}
+    // Arriving from a page-transition wipe: start fully covered, site.js uncovers.
+    try {
+      var w = sessionStorage.getItem("wipe");
+      if (w) {
+        d.classList.add("arriving");
+        d.setAttribute("data-wipe", w);
+        d.setAttribute("data-wipe-label", sessionStorage.getItem("wipeLabel") || "");
+        sessionStorage.removeItem("wipe");
+        sessionStorage.removeItem("wipeLabel");
+      }
+    } catch (e) {}
     // Reveal animations need site.js; show everything if it never loads.
     d.classList.add("js");
-    setTimeout(function () { if (!window.__siteReady) d.classList.remove("js"); }, 2500);
+    setTimeout(function () { if (!window.__siteReady) d.classList.remove("js", "arriving"); }, 2500);
   })();
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,600;1,700;1,800;1,900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap">
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url | bust_file_cache }}">
 
 {%- if page.math %}

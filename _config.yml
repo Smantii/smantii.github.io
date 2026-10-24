@@ -23,15 +23,33 @@ quote_author: Spike Spiegel
 # Navigation (order matters)
 # -----------------------------------------------------------------------------
 
+# Each section has its own colour, used by the page-transition wipe and page accents
+# (one of: navy, cyan, sky, ice, aqua).
 nav:
   - title: Research
     url: /publications/
+    color: cyan
   - title: Projects
     url: /projects/
+    color: sky
   - title: Writing
     url: /blog/
+    color: ice
   - title: CV
     url: /cv/
+    color: aqua
+
+# Words that scroll across the home page ticker.
+ticker:
+  - Machine Learning
+  - PyTorch
+  - JAX
+  - LLM Agents
+  - Scientific ML
+  - Symbolic Regression
+  - HPC
+  - Model Discovery
+  - Python
 
 # -----------------------------------------------------------------------------
 # Social (leave blank to hide)

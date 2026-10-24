@@ -1,5 +1,10 @@
 <!doctype html>
-<html lang="{{ site.lang }}">
+{%- assign section_color = "navy" -%}
+{%- for item in site.nav -%}
+  {%- if page.url contains item.url -%}{%- assign section_color = item.color -%}{%- endif -%}
+{%- endfor -%}
+{%- if page.layout == "post" -%}{%- assign section_color = "ice" -%}{%- endif -%}
+<html lang="{{ site.lang }}" data-color="{{ section_color }}">
   <head>
     {% include head.liquid %}
   </head>
@@ -10,5 +15,22 @@
       {{ content }}
     </main>
     {% include footer.liquid %}
+
+    <!-- Page transition: Persona-style diagonal bands with the destination's name. -->
+    <div class="wipe" aria-hidden="true">
+      <span class="wipe-band wipe-band--1"></span>
+      <span class="wipe-band wipe-band--2"></span>
+      <span class="wipe-band wipe-band--3"></span>
+      <div class="wipe-title">
+        <img class="wipe-mark" src="{{ '/assets/img/apple-touch-icon.png' | relative_url | bust_file_cache }}" alt="" width="180" height="180">
+        <span class="wipe-label"></span>
+      </div>
+    </div>
+    <script>
+      (function () {
+        var l = document.documentElement.getAttribute("data-wipe-label");
+        if (l) document.querySelector(".wipe-label").textContent = l;
+      })();
+    </script>
   </body>
 </html>

@@ -1,7 +1,7 @@
 <header class="site-header" data-open="false">
   <div class="wrap header-inner">
     <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title }} — home">
-      <span class="brand-mark" aria-hidden="true">s</span>
+      <img class="brand-mark" src="{{ '/assets/img/apple-touch-icon.png' | relative_url | bust_file_cache }}" alt="" width="180" height="180">
       <span class="brand-name">{{ site.first_name }} <em>{{ site.last_name }}</em></span>
     </a>
 
@@ -10,7 +10,7 @@
         {%- assign active = false -%}
         {%- if page.url contains item.url -%}{%- assign active = true -%}{%- endif -%}
         {%- if item.url == '/blog/' and page.layout == 'post' -%}{%- assign active = true -%}{%- endif -%}
-        <a class="nav-link" href="{{ item.url | relative_url }}" {% if active %}aria-current="page"{% endif %}>{{ item.title }}</a>
+        <a class="nav-link" href="{{ item.url | relative_url }}" data-color="{{ item.color }}" {% if active %}aria-current="page"{% endif %}>{{ item.title }}</a>
       {%- endfor -%}
     </nav>
 
