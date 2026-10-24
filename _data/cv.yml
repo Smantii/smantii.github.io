@@ -15,8 +15,6 @@
       value: Simone Manti
     - name: Role
       value: Machine Learning Engineer
-    - name: Based in
-      value: Aarhus, Denmark · open to roles in Italy (on-site or hybrid)
     - name: Languages
       value: Italian (Native), English (Fluent), Danish (Intermediate)
 
@@ -54,18 +52,18 @@
   type: time_table
   contents:
     - title: Ph.D., Mechanical Engineering
-      institution: Aarhus University, Aarhus, Denmark
+      institution: Aarhus University
       year: 2023 – 2025
       description:
         - Scientific Machine Learning, symbolic regression and model discovery.
         - "Thesis: Model Discovery via Symbolic Regression with Applications to Fluid Transport Problems."
     - title: M.Sc., Mathematics
-      institution: Università di Pisa, Pisa, Italy
+      institution: Università di Pisa
       year: 2020 – 2022
       description:
         - Applied Mathematics.
     - title: B.Sc., Mathematics
-      institution: Università di Pisa, Pisa, Italy
+      institution: Università di Pisa
       year: 2017 – 2020
 
 - title: Skills
@@ -146,4 +144,4 @@
   contents: >-
     A naturally curious person who enjoys learning new skills and approaching challenges with dedication.
     I value the balance between focused work and an active life: bouldering, fitness, music, tennis, and movies.
-    After several years of research and work abroad, I am now open to roles in Italy, both on-site and hybrid.
+    After several years of research and work abroad, I am now open to new roles.

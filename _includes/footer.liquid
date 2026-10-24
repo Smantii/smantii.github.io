@@ -5,7 +5,7 @@
         <span class="brand-mark" aria-hidden="true">s</span>
         <span class="brand-name">{{ site.first_name }} <em>{{ site.last_name }}</em></span>
       </a>
-      <p class="footer-meta">{% include icon.liquid name="pin" %} {{ site.location }}</p>
+      <p class="footer-meta">{{ site.role }}</p>
     </div>
     <figure class="footer-quote">
       <blockquote>“{{ site.quote | remove: '"' }}”</blockquote>

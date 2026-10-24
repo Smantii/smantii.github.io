@@ -4,12 +4,12 @@ title: About
 permalink: /
 portrait: website_profile.jpg
 
-eyebrow: Machine Learning Engineer · Scientific ML
-headline: Discovering the <em>equations</em> hidden in data.
+eyebrow: Machine Learning Engineer
+headline: Turning data into models that <em>ship</em>.
 intro: >-
-  I’m Simone Manti, a Machine Learning Engineer with a PhD in Scientific Machine Learning.
-  I build, train and deploy ML systems end to end, and I care most about models that are
-  reliable and interpretable enough to actually ship.
+  I’m Simone Manti, a Machine Learning Engineer. I build, train and deploy ML systems end
+  to end, from raw data to production. A PhD in Scientific Machine Learning taught me to
+  care about models that are reliable, efficient and interpretable.
 
 facts:
   - label: Role
@@ -17,7 +17,7 @@ facts:
   - label: PhD
     value: Scientific ML, Aarhus University
   - label: Open to
-    value: ML roles in Italy
+    value: ML roles
 
 focus:
   - title: End-to-end ML Systems
@@ -38,6 +38,6 @@ I’m a Machine Learning Engineer. I build machine learning systems from start t
 
 Most recently I was a Machine Learning Engineer intern at [Compular](https://compulartech.com), where I owned the ML pipelines that predict material and formulation properties for their computational materials simulation platform. Before that I did my PhD in Scientific Machine Learning in the Computational Physics & Machine Learning Lab at [Aarhus University](https://www.au.dk/en/smanti@mpe.au.dk), and stayed on as a Research Assistant. Along the way I was a Visiting Scholar at Virginia Tech. My background is in mathematics: a BSc and an MSc in Applied Mathematics from Università di Pisa.
 
-I come at ML from two angles: solid production Python on one side, and modeling instincts from years of turning data into equations on the other. I use symbolic regression to find compact, physically meaningful models, and I build the open-source JAX libraries that make that search fast.
+I come at ML from two angles: solid production Python on one side, and the modeling rigor of a PhD and a mathematics background on the other. In practice that means clean, tested code, careful evaluation, and models that hold up outside the notebook. My research was on symbolic regression and interpretable models, backed by open-source JAX libraries; lately I’ve also been building LLM agents with tool calling, planning, reflection and evals.
 
-After several years of research and work abroad, **I’m now open to ML roles in Italy**, on-site or hybrid. When I’m not working, you’ll find me bouldering, at the gym or on a tennis court, or deep into music and movies.
+After several years of research and work abroad, **I’m now open to new ML roles**. When I’m not working, you’ll find me bouldering, at the gym or on a tennis court, or deep into music and movies.

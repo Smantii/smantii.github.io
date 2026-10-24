@@ -7,7 +7,6 @@ first_name: Simone
 last_name: Manti
 email: manti998@gmail.com
 role: Machine Learning Engineer
-location: Aarhus, Denmark
 description: >-
   Simone Manti — Machine Learning Engineer with a PhD in Scientific Machine Learning. I build, train
   and deploy ML systems, from symbolic regression and model discovery to agentic AI.
@@ -52,7 +51,7 @@ work_url: https://www.au.dk/en/smanti@mpe.au.dk
 # Put your CV at this path (e.g. assets/pdf/CV_Simone_Manti.pdf) to show a
 # "Download CV" button on /cv/. Leave blank to hide it.
 cv_pdf:
-contact_note: I’m open to ML roles in Italy, on-site or hybrid. Mail, Discord or Telegram are the best ways to reach me.
+contact_note: I’m open to new ML roles. Mail, Discord or Telegram are the best ways to reach me.
 
 # -----------------------------------------------------------------------------
 # Content

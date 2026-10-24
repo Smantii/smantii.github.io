@@ -7,7 +7,7 @@ layout: page
 <div class="cv">
   {%- for section in site.data.cv %}
   <section class="cv-section" data-reveal>
-    <h2 class="cv-title eyebrow"><span class="num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span> {{ section.title }}</h2>
+    <h2 class="cv-title eyebrow">{{ section.title }}</h2>
     <div class="cv-content">
     {%- case section.type -%}
       {%- when "map" %}
