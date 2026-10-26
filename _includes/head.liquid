@@ -11,6 +11,12 @@
 <meta name="author" content="{{ site.first_name }} {{ site.last_name }}">
 <meta name="keywords" content="{{ page.tags | join: ', ' | default: site.keywords }}">
 <link rel="canonical" href="{{ page.url | absolute_url }}">
+{%- if page.ref %}
+{%- assign versions = site.posts | concat: site.translations | where: "ref", page.ref %}
+{%- for v in versions %}
+<link rel="alternate" hreflang="{{ v.lang | default: site.lang }}" href="{{ v.url | absolute_url }}">
+{%- endfor %}
+{%- endif %}
 
 <meta property="og:site_name" content="{{ site.title }}">
 <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">

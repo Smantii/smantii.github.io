@@ -78,6 +78,10 @@ contact_note: I’m open to new ML roles. Mail, Discord or Telegram are the best
 collections:
   news:
     output: false
+  # Translated posts: same layout as posts, but kept out of the blog list, the
+  # feed and previous/next links. Link one to its original with a shared `ref`.
+  translations:
+    output: true
 
 permalink: /blog/:year/:title/
 
@@ -85,6 +89,11 @@ defaults:
   - scope:
       path: ""
       type: posts
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: translations
     values:
       layout: post
   - scope:

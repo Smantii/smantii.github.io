@@ -3,15 +3,35 @@ layout: default
 ---
 {%- assign words = content | strip_html | number_of_words -%}
 {%- assign minutes = words | plus: 120 | divided_by: 200 | at_least: 1 -%}
+{%- assign lang = page.lang | default: site.lang -%}
+{%- assign t = site.data.i18n[lang] | default: site.data.i18n.en -%}
+{%- assign month = page.date | date: "%-m" | minus: 1 -%}
+{%- if page.ref -%}
+  {%- assign versions = site.posts | concat: site.translations | where: "ref", page.ref | sort: "lang" -%}
+{%- endif -%}
 <article class="article" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-hero">
   <canvas class="flow flow--band" aria-hidden="true"></canvas>
   {% include doodle.liquid name="sparkle" class="float float--a page-doodle page-doodle--1" %}
   <header class="article-head wrap wrap--narrow">
-    <a class="back-link" href="{{ '/blog/' | relative_url }}">{% include icon.liquid name="arrow-left" %} All writing</a>
+    <div class="article-top">
+      <a class="back-link" href="{{ '/blog/' | relative_url }}">{% include icon.liquid name="arrow-left" %} {{ t.all_writing }}</a>
+      {%- if versions.size > 1 %}
+      <nav class="lang-switch" aria-label="{{ t.language }}">
+        {%- for v in versions %}
+        {%- assign v_lang = v.lang | default: site.lang %}
+        {%- if v.url == page.url %}
+        <span class="lang-switch-item is-active" aria-current="page" title="{{ site.data.i18n[v_lang].name }}">{{ v_lang | upcase }}</span>
+        {%- else %}
+        <a class="lang-switch-item" href="{{ v.url | relative_url }}" hreflang="{{ v_lang }}" lang="{{ v_lang }}" title="{{ site.data.i18n[v_lang].name }}">{{ v_lang | upcase }}</a>
+        {%- endif %}
+        {%- endfor %}
+      </nav>
+      {%- endif %}
+    </div>
     <p class="eyebrow">
-      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%B %-d, %Y" }}</time>
-      · {{ minutes }} min read
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{% if lang == "en" %}{{ page.date | date: "%B %-d, %Y" }}{% else %}{{ page.date | date: "%-d" }} {{ t.months[month] }} {{ page.date | date: "%Y" }}{% endif %}</time>
+      · {{ minutes }} {{ t.min_read }}
     </p>
     <h1 class="display display--md" itemprop="headline" data-split>{{ page.title }}</h1>
     {%- if page.description %}<p class="lede" itemprop="description">{{ page.description }}</p>{% endif %}
@@ -21,7 +41,7 @@ layout: default
     {%- if page.linkedin %}
     <a class="linkedin-note" href="{{ page.linkedin }}">
       {% include icon.liquid name="linkedin" %}
-      <span>This is the long version of a <strong>LinkedIn post</strong>. Read the original and join the discussion there.</span>
+      <span>{{ t.linkedin_note }}</span>
       {% include icon.liquid name="arrow-up-right" %}
     </a>
     {%- endif %}
@@ -44,24 +64,24 @@ layout: default
       <img src="{{ '/assets/img/website_profile.jpg' | relative_url }}" alt="" width="64" height="64" loading="lazy">
       <div>
         <p class="author-name">{{ site.first_name }} {{ site.last_name }}</p>
-        <p class="muted">{{ site.role }}. I write here about machine learning, AI and what I learn building real systems.</p>
+        <p class="muted">{{ site.role }}. {{ t.author_blurb }}</p>
       </div>
     </div>
     <div class="article-actions">
       {%- if page.linkedin %}
-      <a class="btn btn--primary" href="{{ page.linkedin }}">{% include icon.liquid name="linkedin" %} Discuss on LinkedIn</a>
+      <a class="btn btn--primary" href="{{ page.linkedin }}">{% include icon.liquid name="linkedin" %} {{ t.discuss_linkedin }}</a>
       {%- else %}
-      <a class="btn btn--primary" href="https://www.linkedin.com/in/{{ site.social.linkedin }}">{% include icon.liquid name="linkedin" %} Follow on LinkedIn</a>
+      <a class="btn btn--primary" href="https://www.linkedin.com/in/{{ site.social.linkedin }}">{% include icon.liquid name="linkedin" %} {{ t.follow_linkedin }}</a>
       {%- endif %}
       <a class="btn btn--ghost" href="{{ '/blog/feed.xml' | relative_url }}">{% include icon.liquid name="rss" %} RSS</a>
     </div>
 
     <nav class="post-nav" aria-label="More posts">
       {%- if page.previous %}
-      <a class="post-nav-link" href="{{ page.previous.url | relative_url }}"><span class="eyebrow">Previous</span><span>{{ page.previous.title }}</span></a>
+      <a class="post-nav-link" href="{{ page.previous.url | relative_url }}"><span class="eyebrow">{{ t.previous }}</span><span>{{ page.previous.title }}</span></a>
       {%- else %}<span></span>{% endif %}
       {%- if page.next %}
-      <a class="post-nav-link post-nav-link--next" href="{{ page.next.url | relative_url }}"><span class="eyebrow">Next</span><span>{{ page.next.title }}</span></a>
+      <a class="post-nav-link post-nav-link--next" href="{{ page.next.url | relative_url }}"><span class="eyebrow">{{ t.next }}</span><span>{{ page.next.title }}</span></a>
       {%- endif %}
     </nav>
   </footer>

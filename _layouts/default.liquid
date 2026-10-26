@@ -4,7 +4,7 @@
   {%- if page.url contains item.url -%}{%- assign section_color = item.color -%}{%- endif -%}
 {%- endfor -%}
 {%- if page.layout == "post" -%}{%- assign section_color = "ice" -%}{%- endif -%}
-<html lang="{{ site.lang }}" data-color="{{ section_color }}">
+<html lang="{{ page.lang | default: site.lang }}" data-color="{{ section_color }}">
   <head>
     {% include head.liquid %}
   </head>

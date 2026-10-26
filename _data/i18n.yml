@@ -1,0 +1,25 @@
+# Interface strings for post pages, by language. English is the default.
+en:
+  name: English
+  all_writing: All writing
+  min_read: min read
+  months: [January, February, March, April, May, June, July, August, September, October, November, December]
+  author_blurb: I write here about machine learning, AI and what I learn building real systems.
+  linkedin_note: This is the long version of a <strong>LinkedIn post</strong>. Read the original and join the discussion there.
+  discuss_linkedin: Discuss on LinkedIn
+  follow_linkedin: Follow on LinkedIn
+  previous: Previous
+  next: Next
+  language: Language
+it:
+  name: Italiano
+  all_writing: Tutti gli articoli
+  min_read: min di lettura
+  months: [gennaio, febbraio, marzo, aprile, maggio, giugno, luglio, agosto, settembre, ottobre, novembre, dicembre]
+  author_blurb: Qui scrivo di machine learning, intelligenza artificiale e di ciò che imparo costruendo sistemi reali.
+  linkedin_note: Questa è la versione estesa di un <strong>post su LinkedIn</strong>. Leggi l’originale e partecipa alla discussione.
+  discuss_linkedin: Discuti su LinkedIn
+  follow_linkedin: Seguimi su LinkedIn
+  previous: Precedente
+  next: Successivo
+  language: Lingua

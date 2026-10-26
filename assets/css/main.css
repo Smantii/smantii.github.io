@@ -2469,6 +2469,48 @@ body:not(.layout-post) .progress {
   gap: 0.9em;
 }
 
+.article-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* Language switch: two slanted tabs, the current one filled cyan */
+.lang-switch {
+  display: inline-flex;
+  border: 2px solid #ffffff;
+  background: #000000;
+  box-shadow: 4px 4px 0 var(--cyan);
+  transform: skewX(var(--skew));
+}
+
+.lang-switch-item {
+  padding: 0.2rem 0.85rem;
+  font-family: var(--display);
+  font-size: 1.05rem;
+  font-style: italic;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+  transition: background 0.2s, color 0.2s;
+}
+
+.lang-switch-item + .lang-switch-item {
+  border-left: 2px solid #ffffff;
+}
+
+.lang-switch-item.is-active {
+  background: var(--cyan);
+  color: var(--on-fill);
+}
+
+a.lang-switch-item:hover {
+  background: #ffffff;
+  color: #000000;
+}
+
 .linkedin-note {
   display: flex;
   align-items: center;

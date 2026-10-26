@@ -79,6 +79,14 @@ With `linkedin:` set, the post shows a "long version of a LinkedIn post" banner 
 and a **Discuss on LinkedIn** button at the end. Posts appear at `/blog/` and in the RSS feed at `/blog/feed.xml`.
 Blockquotes (`> ...`) render as black Persona-style dialogue boxes, and code blocks get a copy button.
 
+### Translations
+
+Put a translated post in `_translations/` with `lang:` (e.g. `it`), its own `permalink:`
+(e.g. `/blog/2026/my-post-title/it/`), and the same `ref:` as the original, which also needs `lang: en`
+and that `ref:`. Both pages then show an **EN / IT** switch in the header, and the translation stays
+out of the blog list, the home page and the RSS feed. Interface strings (dates, "min read", buttons)
+live in `_data/i18n.yml`.
+
 Tip: put a post in `_drafts/` (no date in the filename) to preview it locally with `--drafts` without publishing it.
 
 ## Publications
