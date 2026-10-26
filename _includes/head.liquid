@@ -70,3 +70,6 @@
 <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
 {%- endif %}
 <script defer src="{{ '/assets/js/site.js' | relative_url | bust_file_cache }}"></script>
+{%- if site.goatcounter and jekyll.environment == "production" %}
+<script data-goatcounter="https://{{ site.goatcounter }}.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+{%- endif %}

@@ -72,6 +72,14 @@ cv_pdf:
 contact_note: I’m open to new ML roles. Mail, Discord or Telegram are the best ways to reach me.
 
 # -----------------------------------------------------------------------------
+# Analytics
+# -----------------------------------------------------------------------------
+
+# GoatCounter code (the "xxx" in xxx.goatcounter.com). Leave blank to disable.
+# Only loaded in production builds, so local previews aren't counted.
+goatcounter: smantii
+
+# -----------------------------------------------------------------------------
 # Content
 # -----------------------------------------------------------------------------
 
