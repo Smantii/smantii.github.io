@@ -11,9 +11,9 @@ permalink: /blog/2026/scylla-charybdis-symbolic-regression/it/
 
 Se cresci a Reggio Calabria, il mare davanti a te non è mai fermo. Due volte al giorno l'acqua corre verso nord, e due volte al giorno corre verso sud. Pescatori, nuotatori e comandanti dei traghetti conoscono bene le parole locali: la _rema montante_, la _rema scendente_ e la _stanca_, il momento di calma tra le due.
 
-La parola _rema_ è più antica di quanto molti pensino. Un [libro di viaggio del 1793](https://it.wikisource.org/wiki/Pagina:Viaggi_alle_Due_Sicilie_e_in_alcune_parti_dell%27Appennino,_vol._4,_1793_-_BEIC_IE6206670.djvu/175) dice che deriva dalla parola greca per "flusso". Insomma, da secoli la gente dello Stretto usa un termine di fluidodinamica.
+La parola _rema_ è più antica di quanto molti pensino. Un [libro di viaggio del 1793](https://it.wikisource.org/wiki/Pagina:Viaggi_alle_Due_Sicilie_e_in_alcune_parti_dell%27Appennino,_vol._4,_1793_-_BEIC_IE6206670.djvu/175) dice che deriva dalla parola greca "flusso". Insomma, da secoli la gente dello Stretto usa un termine di fluidodinamica.
 
-In questo articolo guardo queste correnti con gli occhi di uno scienziato che si occupa di machine learning per la fisica. Le collego a un mito antico, alla mia ricerca e a un piccolo esperimento che potete eseguire a casa.
+In questo articolo guardo queste correnti con gli occhi di uno scienziato che si occupa di machine learning per la fisica. Le collego a un mito antico, alla mia ricerca e a un piccolo esperimento che potete replicare facilmente.
 
 ## Perché l'acqua corre così veloce
 
@@ -78,13 +78,13 @@ Aggiungere qui la figura quando è pronta, es. in assets/img/blog/toy-strait.png
 </figure>
 -->
 
-| Modello                   | Parametri   | Maree deboli (viste) | Maree forti (mai viste) |
-| ------------------------- | ----------: | -------------------: | ----------------------: |
-| **Regressione simbolica** | 4 costanti  | **0,004**            | **0,006**               |
-| Rete piccola, 2×16, ReLU  | 337         | 0,020                | 2,714                   |
-| Rete media, 3×64, ReLU    | 8.577       | 0,019                | 0,426                   |
-| Rete media, 3×64, tanh    | 8.577       | 0,030                | 0,281                   |
-| Rete grande, 4×128, ReLU  | 50.049      | 0,034                | 0,423                   |
+| Modello                   |  Parametri | Maree deboli (viste) | Maree forti (mai viste) |
+| ------------------------- | ---------: | -------------------: | ----------------------: |
+| **Regressione simbolica** | 4 costanti |            **0,004** |               **0,006** |
+| Rete piccola, 2×16, ReLU  |        337 |                0,020 |                   2,714 |
+| Rete media, 3×64, ReLU    |      8.577 |                0,019 |                   0,426 |
+| Rete media, 3×64, tanh    |      8.577 |                0,030 |                   0,281 |
+| Rete grande, 4×128, ReLU  |     50.049 |                0,034 |                   0,423 |
 
 L'errore è la differenza media tra la corrente prevista e quella vera, in m/s (per le reti: strati × neuroni per strato). Nelle maree più forti l'acqua raggiunge 1,84 m/s, mentre nei dati di addestramento non ha mai superato 1,07.
 
@@ -94,7 +94,7 @@ Con le maree deboli, tutti i modelli vanno bene. Con quelle forti, il quadro cam
 - **Una rete più grande non aiuta.** La rete con 50.049 parametri non è migliore di quella con 8.577.
 - **La rete più piccola va fuori rotta.** Prevede una corrente che deriva sempre più verso sud a ogni marea, fino a circa 6 m/s nella direzione sbagliata.
 
-In una prova precedente ho anche ripetuto il test per la regressione simbolica e per la rete media ReLU con 5 semi casuali diversi. La regressione simbolica è sempre rimasta tra 0,006 e 0,007 m/s, mentre la rete variava da 0,31 a 1,63 m/s.
+In una prova precedente ho anche ripetuto il test per la regressione simbolica e per la rete media ReLU con 5 seed casuali diversi. La regressione simbolica è sempre rimasta tra 0,006 e 0,007 m/s, mentre la rete variava da 0,31 a 1,63 m/s.
 
 ### La formula
 
@@ -115,8 +115,8 @@ I valori veri sono 6,54 e 0,31. I due piccoli termini in più vengono dal rumore
 L'esperimento è un racconto, non un modello dello Stretto vero. Per essere onesti:
 
 - **È fin troppo semplice.** Lo Stretto vero ha due strati d'acqua, onde interne, vento, un fondale complesso e vortici tridimensionali. Il mio giocattolo ha un solo numero per la corrente.
-- **Ho dato al metodo i mattoncini giusti.** Ho permesso valore assoluto e moltiplicazione, il che ha reso facile trovare il termine di attrito. Con dati reali, scegliere i mattoncini fa parte del lavoro.
-- **Le reti potrebbero fare meglio.** Ho provato quattro dimensioni e due funzioni di attivazione, e nessuna ha estrapolato bene. Ma una rete con la fisica integrata, o addestrata su una gamma più ampia di maree, può fare molto meglio. Il punto non è che le reti siano cattive. Il punto è che una formula leggibile permette di verificare se il modello ha senso fisico.
+- **Ho dato al metodo i mattoncini giusti.** Ho usato come funzioni primitive valore assoluto e moltiplicazione, il che ha reso facile trovare il termine di attrito. Con dati reali, scegliere i mattoncini fa parte del lavoro.
+- **Le reti potrebbero fare meglio.** Ho provato quattro dimensioni e due funzioni di attivazione, e nessuna ha estrapolato bene. Ma una rete con la fisica integrata, o addestrata su una gamma più ampia di maree, può fare molto meglio. Il punto non è che le reti non siano un buon metodo. Il punto è che una formula leggibile permette di verificare se il modello ha senso fisico.
 - **Il mio articolo non ha simulato lo Stretto.** Ha usato due flussi di test classici. Applicare queste idee ai flussi oceanici reali è ancora una sfida aperta, e una che trovo entusiasmante.
 
 ## Per chiudere
