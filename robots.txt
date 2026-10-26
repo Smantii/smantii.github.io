@@ -52,6 +52,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;1,600;1,700;1,800;1,900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap">
 <link rel="stylesheet" href="/assets/css/main.css?12216983f29e99cc6bd25edcc8dad553">
 <script defer src="/assets/js/site.js?120d520d136dc22dbb17958fa8ddcc92"></script>
+<script data-goatcounter="https://smantii.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 
   </head>
   <body class="layout-page">
