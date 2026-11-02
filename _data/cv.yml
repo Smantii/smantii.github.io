@@ -117,6 +117,9 @@
 - title: Certifications
   type: time_table
   contents:
+    - title: Generative AI with Large Language Models
+      institution: DeepLearning.AI & AWS
+      year: Nov. 2026
     - title: Agentic AI
       institution: DeepLearning.AI (Andrew Ng)
       year: Oct. 2026
@@ -144,4 +147,4 @@
   contents: >-
     A naturally curious person who enjoys learning new skills and approaching challenges with dedication.
     I value the balance between focused work and an active life: bouldering, fitness, music, tennis, and movies.
-    After several years of research and work abroad, I am now open to new roles.
+    After several years of research and work abroad, I am now back in Italy and focused on applied ML engineering.

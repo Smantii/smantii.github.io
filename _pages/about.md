@@ -48,4 +48,4 @@ Most recently I was a Machine Learning Engineer intern at [Compular](https://com
 
 I come at ML from two angles: solid production Python on one side, and the modeling rigor of a PhD and a mathematics background on the other. In practice that means clean, tested code, careful evaluation, and models that hold up outside the notebook. My research was on symbolic regression and interpretable models, backed by open-source JAX libraries; lately I’ve also been building LLM agents with tool calling, planning, reflection and evals.
 
-After several years of research and work abroad, **I’m now open to new ML roles**. When I’m not working, you’ll find me bouldering, at the gym or on a tennis court, or deep into music and movies.
+After several years of research and work abroad, I am now back in Italy and focused on applied ML engineering. When I am not working, you will find me bouldering, at the gym or on a tennis court, or deep into music and movies.
