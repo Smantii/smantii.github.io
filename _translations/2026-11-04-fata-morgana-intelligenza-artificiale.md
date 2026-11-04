@@ -19,19 +19,14 @@ Nell'XI secolo i Normanni portarono nel Sud Italia le storie di re Artù. Con lo
 ## La luce che si piega
 
 La Fata Morgana non è magia. È luce che si piega.
-
 Dopo una notte fresca, l'aria appena sopra il mare resta fredda. Il sole scalda l'aria più in alto. Ora c'è aria calda sopra aria fredda, e la mattina è così calma che i due strati non si mescolano.
-
 Nell'aria fredda la luce viaggia un po' più lentamente. Così la luce che arriva dalla costa siciliana non va dritta. Si curva. I nostri occhi non lo sanno. Mettono l'immagine nel posto sbagliato: più in alto, più alta, allungata.
-
 Nel 1773 un frate calabrese, Antonio Minasi, la osservò più e più volte da queste coste. Dimostrò che i palazzi sospesi erano edifici veri e costa vera, spostati nel punto sbagliato del cielo.
-
 Niente è inventato. Pezzi veri, messi insieme nel modo sbagliato, e il risultato è del tutto credibile.
 
 ## Il miraggio sul mio computer
 
 Volevo rivederla, così ho scritto un breve programma in Python che ricrea la Fata Morgana. Usa solo NumPy e Matplotlib e gira su qualsiasi portatile in pochi secondi.
-
 Siete sul lungomare, con gli occhi a 8 metri sopra il mare, e guardate una costa a 12 chilometri di distanza. Il programma:
 
 1. **Descrive l'aria.** In una mattina di Fata Morgana, l'aria diventa circa 1,2 gradi più calda in uno strato sottile intorno ai 12 metri sopra il mare.
@@ -53,7 +48,6 @@ La seconda figura mostra la stessa costa vista attraverso l'aria normale e attra
 </figure>
 
 Con lo strato caldo, le case si alzano e diventano alte mura. Nelle mattine più forti, alcune forme appaiono due volte, una delle quali capovolta. Non è stato aggiunto niente. Il programma ha solo spostato pezzi veri della costa, proprio come aveva descritto Minasi.
-
 Poi ho dipinto un piccolo paese sul mare, con case, un campanile e un faro, e l'ho fatto passare attraverso gli stessi raggi. Niente, nella seconda immagine, è stato disegnato a mano.
 
 <figure>

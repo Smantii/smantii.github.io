@@ -12,40 +12,28 @@ ref: fata-morgana-ai # shared with the Italian version in _translations/
 
 ## A city in the sky
 
-Summer, early morning, the seafront of Reggio Calabria. The sea is flat like glass. The old men are already at the railing. On the other side of the water, Sicily begins to move. The coast lifts off the sea. The houses stretch up into towers. A white city stands in the air, close enough to touch.
-
-Nobody shouts. People in Reggio have seen it many times. They just look.
-
+Summer, early morning, the seafront of Reggio Calabria. The sea is flat like glass. The old men are already at the railing. On the other side of the water, Sicily begins to move. The coast lifts off the sea. The houses stretch up into towers. A white city stands in the air, close enough to touch. Nobody shouts. People in Reggio have seen it many times. They just look.
 A few minutes later, the air moves, and the city is gone.
-
 People here call it the Fata Morgana, and Reggio is sometimes called the City of the Fata Morgana. I grew up with this story. In this article I want to tell you where the name comes from, what really happens in the air, and why I found the same mirage, many years later, inside artificial intelligence.
 
 ## The fairy and the king
 
 The Normans brought the stories of King Arthur to the south of Italy in the eleventh century. With them came his magic sister, Morgan le Fay. Here she became the Fata Morgana, the fairy Morgana.
-
 The legend has many versions. In one of them, a foreign king arrives in Reggio and sees Sicily on the horizon. He wants it, but he has no boat. The fairy appears and makes the island look just a few steps away. The king steps into the water to walk across.
-
 And the sea takes him.
-
 He did not die because the island looked strange. He died because it looked close, and real, and exactly like what he wanted.
 
 ## Light that bends
 
 The Fata Morgana is not magic. It is light that bends.
-
 After a cool night, the air just above the sea stays cold. The sun warms the air higher up. Now warm air sits on top of cold air, and the morning is so calm that the two layers do not mix.
-
 Light travels a little slower in cold air. So the light from the Sicilian coast does not go straight. It curves. Our eyes do not know this. They put the image in the wrong place: higher, taller, stretched.
-
 In 1773, a friar from Calabria called Antonio Minasi watched it again and again from these shores. He showed that the floating palaces were real buildings and real coastline, moved to the wrong place in the sky.
-
 Nothing is invented. Real pieces, put together in the wrong way, and the result is completely believable.
 
 ## The mirage on my computer
 
 I wanted to see it again, so I wrote a short Python program that recreates the Fata Morgana. It uses only NumPy and Matplotlib and runs on any laptop in a few seconds.
-
 You stand on the seafront, with your eyes 8 metres above the sea, and you look at a coast 12 kilometres away. The program:
 
 1. **Describes the air.** On a Fata Morgana morning, the air gets about 1.2 degrees warmer in a thin layer around 12 metres above the sea.
@@ -89,11 +77,8 @@ You can find the code here: [github.com/Smantii/calabria-meets-ai](https://githu
 ## The fairy inside the machine
 
 Artificial intelligence has its own Fata Morgana. People call it a "hallucination".
-
 You ask a chatbot a question and it gives you a clear, confident answer. It cites a book that does not exist. It quotes a number nobody ever measured. It sounds right, and that is the problem.
-
 A language model learns from a huge amount of text which words usually follow which. When it answers, it builds the most likely sentence, piece by piece. But it has no direct way to check if the sentence is true. It only knows that it looks like a true sentence.
-
 So a hallucination is made like the mirage:
 
 - It is built from real pieces.
@@ -103,7 +88,6 @@ So a hallucination is made like the mirage:
 ## Six questions about my city
 
 I asked two small chatbots six questions about the Fata Morgana, and I checked every answer against the original sources.
-
 The models are Gemma 3 (4 billion parameters, by Google) and Llama 3.2 (3 billion parameters, by Meta). They run on a normal laptop with no internet, so everything they say comes from their training. Each question was asked in a fresh chat, with a limit of three sentences. For names and dates, I also asked: "Can you give me the source, with page number?" Here are two of the answers.
 
 **Who wrote the first scientific description?** Antonio Minasi, in 1773. Gemma answered with complete confidence:
@@ -119,17 +103,13 @@ A name, a nationality, a year, a ship. Asked for the source, it gave a German ti
 In 1786 Goethe had just arrived in Italy. He reached Sicily the next spring. The anecdote is celebrated nowhere, because it never happened.
 
 **Two ways to fail.** Gemma almost never said "I don't know", and the more specific the question, the more specific the invention. Llama said "I can't find it" to every question about Minasi. That is honest, but it is not knowledge, and it still invented a king and an explorer when the question sounded like a story.
-
 Every wrong answer was made of real pieces: the shape of a real book reference, a real year, a real poet who really went to Sicily. Put together in the wrong way, just like the coast over the Strait.
-
 To be fair, these are small models, and bigger chatbots would get some of these right. The answers also change each time. And I chose old, local details on purpose, because they are rare online. The mirage appears where the real image is far away.
 
 ## Back on the seafront
 
 The old men at the railing never get excited when the city rises over the Strait. They have seen it too many times. They enjoy it, and they know it is not there.
-
 This is how I want to use these machines. Enjoy what they can do, and remember that a beautiful answer is not always a true one.
-
 The king believed what he saw. The people of Reggio look, and wait for the air to move.
 
 In the next article of this series, I will take another tradition from Reggio Calabria and look at it through the eyes of artificial intelligence.
