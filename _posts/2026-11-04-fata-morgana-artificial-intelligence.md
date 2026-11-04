@@ -1,7 +1,7 @@
 ---
 title: "The legend of the fairy on the Strait"
 description: The Fata Morgana over the Strait of Messina, a ray-tracing simulation in Python, and why AI hallucinations are built just like a mirage.
-date: 2026-11-04 18:00:00+0100
+date: 2026-11-04 09:00:00+0100
 tags: [fata morgana, AI hallucinations, LLM, ray tracing]
 lang: en
 ref: fata-morgana-ai # shared with the Italian version in _translations/

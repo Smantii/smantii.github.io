@@ -1,7 +1,7 @@
 ---
 title: "La leggenda della fata sullo Stretto"
 description: La Fata Morgana sullo Stretto di Messina, una simulazione in Python con i raggi di luce, e perché le allucinazioni dell'IA sono fatte proprio come un miraggio.
-date: 2026-11-04 18:00:00+0100
+date: 2026-11-04 09:00:00+0100
 tags: [fata morgana, allucinazioni IA, LLM, ray tracing]
 lang: it
 ref: fata-morgana-ai # shared with the English version in _posts/
