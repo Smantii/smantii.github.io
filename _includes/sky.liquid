@@ -1,0 +1,7 @@
+{%- comment -%}
+  The view across the Strait, drawn by assets/js/strait.js. Usage, as the first
+  child of a positioned box: {% include sky.liquid kind="hero" %} or kind="band".
+  .strait-sea marks the height of the sea, so CSS decides where the horizon is.
+{%- endcomment -%}
+<canvas class="strait" data-strait="{{ include.kind | default: 'band' }}" aria-hidden="true"></canvas>
+<span class="strait-sea" aria-hidden="true"></span>

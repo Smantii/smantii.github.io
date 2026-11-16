@@ -1,8 +1,8 @@
 <header class="site-header" data-open="false">
   <div class="wrap header-inner">
     <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title }} — home">
-      <img class="brand-mark" src="{{ '/assets/img/apple-touch-icon.png' | relative_url | bust_file_cache }}" alt="" width="180" height="180">
-      <span class="brand-name">{{ site.first_name }} <em>{{ site.last_name }}</em></span>
+      <span class="brand-mark" aria-hidden="true">s</span>
+      <span class="brand-name">{{ site.first_name }} {{ site.last_name }}</span>
     </a>
 
     <nav class="nav" id="site-nav" aria-label="Primary">
@@ -10,12 +10,12 @@
         {%- assign active = false -%}
         {%- if page.url contains item.url -%}{%- assign active = true -%}{%- endif -%}
         {%- if item.url == '/blog/' and page.layout == 'post' -%}{%- assign active = true -%}{%- endif -%}
-        <a class="nav-link" href="{{ item.url | relative_url }}" data-color="{{ item.color }}" {% if active %}aria-current="page"{% endif %}>{{ item.title }}</a>
+        <a class="nav-link" href="{{ item.url | relative_url }}" {% if active %}aria-current="page"{% endif %}>{{ item.title }}</a>
       {%- endfor -%}
     </nav>
 
     <div class="header-actions">
-      <button class="icon-btn theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+      <button class="icon-btn theme-toggle" type="button" aria-label="Switch between dawn and night" title="Switch between dawn and night">
         <span class="when-light">{% include icon.liquid name="moon" %}</span>
         <span class="when-dark">{% include icon.liquid name="sun" %}</span>
       </button>

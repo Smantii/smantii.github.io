@@ -2,9 +2,10 @@
 
 Personal website of Simone Manti, live at **https://smantii.github.io**.
 
-A custom Jekyll theme inspired by the menus of *Persona 3 Reload*: light blue and navy, cyan highlights,
-slanted shapes, halftone dots and lots of motion. There is no CSS framework and no jQuery, just
-`assets/css/main.css` and `assets/js/site.js`. GitHub Actions builds and deploys the site on every push to `main`.
+A custom Jekyll theme called **The Strait**: every page opens on a live view of the Sicilian coast seen
+from Reggio Calabria, at dawn in the light theme and at night in the dark one, with the Fata Morgana
+rising when the air is still. There is no CSS framework and no jQuery, just `assets/css/main.css`,
+`assets/js/site.js` and `assets/js/strait.js`. GitHub Actions builds and deploys the site on every push to `main`.
 
 ## Where things live
 
@@ -35,31 +36,27 @@ intro: >-
 facts:                                      # the rows of the status sheet in "About"
   - label: Role
     value: Machine Learning Engineer
-menu:                                       # the command menu over the portrait
+menu:                                       # the section links on the water in the hero
   - title: About                            # each id is a section of the home page:
     id: about                               # about | focus | research | writing | news | contact
-    hint: Who I am and where I have worked. # shown under the menu while the item is selected
+    hint: Who I am and where I have worked. # tooltip of the link                  
 focus:                                      # the four "What I work on" cards
   - title: End-to-end ML Systems
     icon: pipeline                          # pipeline | wave | tree | agent (see doodle.liquid)
-    color: navy                             # navy | cyan | sky | ice
     text: One or two sentences.
     tags: [Pipelines, PyTorch]
 ```
 
 The bio is the Markdown below the front matter. Wrapping a word in `<em>` inside any headline
-(`.display` or `.h2`) gives it the cyan highlight block. The three counters in "About"
-(publications, projects, posts) are counted from the site's data, and the date and moon phase
-in the hero are today's, worked out in the browser.
+(`.display` or `.h2`) sets it in red italics. The three counters in "About"
+(publications, projects, posts) are counted from the site's data.
 
-The home page has its own files, loaded only there: `_layouts/home.liquid`, `assets/css/home.css`
-and `assets/js/home.js`.
+The home page has its own files, loaded only there: `_layouts/home.liquid` and `assets/css/home.css`.
 
 In `_config.yml`:
 
-- `nav`: the menu. Each item has a `color` (`cyan`, `sky`, `ice` or `aqua`) used for its hover state and page transition.
-- `ticker`: the words in the scrolling band under the hero.
-- `contact_note`: the sentence in the dialogue box of the "Contact" section.
+- `nav`: the menu.
+- `contact_note`: the sentence under the headline of the "Contact" section.
 - `cv_pdf`: put your CV at e.g. `assets/pdf/CV_Simone_Manti.pdf` and set this path to show a **Download CV** button on `/cv/`.
 
 ## Writing a blog post (the long version of a LinkedIn post)
@@ -86,7 +83,8 @@ $$
 
 With `linkedin:` set, the post shows a "long version of a LinkedIn post" banner at the top
 and a **Discuss on LinkedIn** button at the end. Posts appear at `/blog/` and in the RSS feed at `/blog/feed.xml`.
-Blockquotes (`> ...`) render as black Persona-style dialogue boxes, and code blocks get a copy button.
+Set `card:` to a wide picture (about 3:1) to show it on the post's card on the home page and the blog index.
+Code blocks get a copy button.
 
 ### Translations
 
@@ -109,19 +107,21 @@ Each BibTeX entry can carry extra fields used by the site, which are hidden from
 
 ## Motion
 
-All animations live in `assets/js/site.js` and need no libraries:
+- **The Strait** (`assets/js/strait.js`): one WebGL fragment shader draws the sky, the sea, the coast and
+  its reflection behind the hero and every page title. `_includes/sky.liquid` places it; the CSS variable
+  `--sea-h` on the surrounding box sets the height of the sea.
+- **The mirage**: while the mouse rests, the houses stretch into towers; moving the mouse is wind and
+  dissolves them. On touch screens the mirage stays on.
+- **Dawn and night**: the theme toggle changes the time of day. At night the moon is in today's real phase.
+- **Page transitions** are a native cross-fade (`@view-transition` in `main.css`).
 
-- **Vortex flow**: the animated streaklines behind the hero and page titles (a von Kármán vortex street).
-- **Page transitions**: clicking an internal link sweeps black, cyan and navy bands across the screen, with the logo and the section name.
-- **Headlines** slam in word by word; content slides in from the left as you scroll.
-- **Cards** tilt toward the cursor; clicks produce small cyan shard bursts.
-
-Visitors with "reduce motion" enabled get a static version of all of this.
+Visitors with "reduce motion" enabled get a single still frame. Without WebGL, a CSS gradient of the
+same sky and sea is shown.
 
 ## Gotchas
 
-- **Changing the logo:** `apple-touch-icon.png` is also the header/footer logo and the image in the page transition.
-  Keep it square (180×180 or larger). Links to it get a cache-busting hash automatically when the file changes.
+- **Changing the logo:** the header and footer mark is the letter in `.brand-mark` (`_includes/header.liquid`
+  and `footer.liquid`). `apple-touch-icon.png` and `favicon.svg` are the icons; keep them square.
 - **Portrait:** keep the name `website_profile.jpg`. If you change its proportions, update `width`/`height` in `_layouts/home.liquid`.
 - **CSS is not minified on purpose:** the build's minifier breaks `calc()` expressions, so `assets/css/*.css` is excluded in `_config.yml`.
 - **HTML-heavy pages are `.html`, not `.md`** (`blog.html`, `projects.html`, `publications.html`), because Markdown mangles nested HTML.

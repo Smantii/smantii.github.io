@@ -11,9 +11,8 @@ layout: default
 {%- endif -%}
 <article class="article" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-hero">
-  <canvas class="flow flow--band" aria-hidden="true"></canvas>
-  {% include doodle.liquid name="sparkle" class="float float--a page-doodle page-doodle--1" %}
-  <header class="article-head wrap wrap--narrow">
+  {% include sky.liquid kind="band" %}
+  <header class="article-head wrap wrap--narrow enter">
     <div class="article-top">
       <a class="back-link" href="{{ '/blog/' | relative_url }}">{% include icon.liquid name="arrow-left" %} {{ t.all_writing }}</a>
       {%- if versions.size > 1 %}
@@ -33,7 +32,7 @@ layout: default
       <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{% if lang == "en" %}{{ page.date | date: "%B %-d, %Y" }}{% else %}{{ page.date | date: "%-d" }} {{ t.months[month] }} {{ page.date | date: "%Y" }}{% endif %}</time>
       · {{ minutes }} {{ t.min_read }}
     </p>
-    <h1 class="display display--md" itemprop="headline" data-split>{{ page.title }}</h1>
+    <h1 class="display display--md" itemprop="headline">{{ page.title }}</h1>
     {%- if page.description %}<p class="lede" itemprop="description">{{ page.description }}</p>{% endif %}
     {%- if page.tags.size > 0 %}
     <p class="tags">{% for t in page.tags %}<span class="tag">{{ t }}</span>{% endfor %}</p>

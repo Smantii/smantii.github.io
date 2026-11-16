@@ -2,197 +2,138 @@
 layout: default
 ---
 {%- comment -%}
-  Home page, laid out like a game menu screen: a command menu in the hero that
-  jumps to each section, then one "screen" per section.
+  Home page. The hero is the view across the Strait of Messina at dawn (or at
+  night, in dark mode), drawn live by assets/js/strait.js. The text lives in the
+  front matter of _pages/about.md.
 {%- endcomment -%}
 {%- capture pub_count %}{% bibliography_count %}{% endcapture -%}
 {%- assign news = site.news | sort: "date" | reverse -%}
 
-<section class="hero hm-hero" aria-labelledby="hero-title">
-  <canvas class="flow" aria-hidden="true"></canvas>
-  <div class="wrap hm-hero-grid">
-    <div class="hm-hero-text">
-      <p class="hm-role">
-        <span class="sticker">{{ page.eyebrow }}</span>
-        {%- if page.status %}<span class="hm-open">{{ page.status }}</span>{% endif %}
-      </p>
-      <h1 class="display" id="hero-title" data-split>{{ page.headline }}</h1>
-
-      <div class="hm-dialogue">
-        <span class="hm-dialogue-name" aria-hidden="true">{{ site.first_name }}</span>
-        <p class="hm-dialogue-text" data-type>{{ page.intro }}</p>
-        <a class="hm-dialogue-next" href="#about" aria-label="Continue to the About section"></a>
-      </div>
-
-      <div class="hero-cta">
-        <a class="btn btn--primary" href="{{ '/cv/' | relative_url }}" data-color="aqua">View my CV {% include icon.liquid name="arrow" %}</a>
-        <a class="btn btn--ghost" href="{{ '/publications/' | relative_url }}" data-color="cyan">Explore the research</a>
-      </div>
-    </div>
-
-    <div class="hm-stage">
-      {%- comment %} Today's date and moon phase, filled in by home.js. {% endcomment %}
-      <p class="hm-date" hidden>
-        <span class="hm-date-day"></span>
-        <span class="hm-date-side">
-          <span class="hm-date-month"></span>
-          <span class="hm-date-week"></span>
-        </span>
-        <span class="hm-moon">
-          <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="17"/><path d=""/></svg>
-          <span class="hm-moon-name"></span>
-        </span>
-      </p>
-
-      <figure class="hm-portrait">
-        <span class="hm-portrait-shard hm-portrait-shard--1" aria-hidden="true"></span>
-        <span class="hm-portrait-shard hm-portrait-shard--2" aria-hidden="true"></span>
-        <div class="hm-portrait-frame">
-          <img src="{{ '/assets/img/' | append: page.portrait | relative_url }}" alt="Portrait of {{ site.first_name }} {{ site.last_name }}" width="1084" height="1451" fetchpriority="high">
-        </div>
-      </figure>
-
-      <nav class="hm-menu" aria-label="On this page">
-        <ol>
-          {%- for item in page.menu %}
-          <li style="--i: {{ forloop.index0 }}">
-            <a href="#{{ item.id }}" data-hint="{{ item.hint | escape }}"{% if forloop.first %} class="is-selected"{% endif %}>
-              <span class="hm-menu-n" aria-hidden="true">{{ forloop.index | prepend: '0' }}</span>
-              <span class="hm-menu-t">{{ item.title }}</span>
-            </a>
-          </li>
-          {%- endfor %}
-        </ol>
-        <p class="hm-help" aria-hidden="true"><span class="hm-help-text">{{ page.menu.first.hint }}</span></p>
-      </nav>
+<section class="hero" aria-labelledby="hero-title">
+  {% include sky.liquid kind="hero" %}
+  <div class="wrap hero-text enter">
+    <p class="hero-role">
+      <span class="eyebrow">{{ page.eyebrow }}</span>
+      {%- if page.status %}<span class="status">{{ page.status }}</span>{% endif %}
+    </p>
+    <h1 class="display" id="hero-title">{{ page.headline }}</h1>
+    <p class="hero-intro">{{ page.intro }}</p>
+    <div class="cta">
+      <a class="btn btn--primary" href="{{ '/cv/' | relative_url }}">View my CV {% include icon.liquid name="arrow" %}</a>
+      <a class="btn btn--ghost" href="{{ '/publications/' | relative_url }}">Explore the research</a>
     </div>
   </div>
-</section>
 
-<div class="hm-ribbon" aria-hidden="true">
-  <div class="ticker-track">
-    {%- for round in (1..2) %}
-    <div class="ticker-group">
-      {%- for word in site.ticker %}
-      <span>{{ word }}</span>{% include doodle.liquid name="sparkle" class="ticker-star" %}
-      {%- endfor %}
-    </div>
-    {%- endfor %}
-  </div>
-</div>
-
-<section class="section hm-section" id="about" aria-labelledby="about-title">
-  <div class="wrap hm-about">
-    <div class="hm-about-side">
-      <header class="hm-head" data-reveal>
-        <span class="hm-ghost" aria-hidden="true">About</span>
-        <p class="hm-kicker"><b>01</b> About</p>
-        <h2 class="h2" id="about-title">Research rigor,<br><em class="scribble">production</em> mindset.</h2>
-      </header>
-
-      <dl class="hm-sheet">
-        {%- for fact in page.facts %}
-        <div data-reveal><dt>{{ fact.label }}</dt><dd>{{ fact.value }}</dd></div>
+  <div class="wrap hero-foot">
+    <p class="hero-readout" aria-hidden="true">
+      <span>Sicily, seen from Reggio Calabria</span>
+      <span data-readout data-still="Still air. The city rises." data-rising="The air is settling." data-wind="Wind. The city is gone.">The air is settling.</span>
+    </p>
+    <nav class="hero-index" aria-label="On this page">
+      <ol>
+        {%- for item in page.menu %}
+        <li><a href="#{{ item.id }}" title="{{ item.hint | escape }}"><span aria-hidden="true">{{ forloop.index | prepend: '0' }}</span>{{ item.title }}</a></li>
         {%- endfor %}
-      </dl>
-
-      <ul class="hm-counts">
-        <li data-reveal><a href="{{ '/publications/' | relative_url }}" data-color="cyan"><b>{{ pub_count | strip }}</b><span>Publications</span></a></li>
-        <li data-reveal><a href="{{ '/projects/' | relative_url }}" data-color="sky"><b>{{ site.data.repositories.size }}</b><span>Open-source projects</span></a></li>
-        <li data-reveal><a href="{{ '/blog/' | relative_url }}" data-color="ice"><b>{{ site.posts.size }}</b><span>Blog posts</span></a></li>
-      </ul>
-    </div>
-
-    <div class="prose prose--lead" data-reveal>
-      {{ content }}
-    </div>
+      </ol>
+    </nav>
   </div>
 </section>
 
-<section class="section section--tint hm-section" id="focus" aria-labelledby="focus-title">
+<section class="section" id="about" aria-labelledby="about-title">
+  <div class="wrap about">
+    <figure class="about-portrait">
+      <img src="{{ '/assets/img/' | append: page.portrait | relative_url }}" alt="Portrait of {{ site.first_name }} {{ site.last_name }}" width="748" height="1000" loading="lazy" decoding="async">
+    </figure>
+    <div class="about-text">
+      <header class="section-head">
+        <p class="kicker"><b>01</b> About</p>
+        <h2 class="h2" id="about-title">Research rigor, <em>production</em> mindset.</h2>
+      </header>
+      <div class="prose prose--lead">
+        {{ content }}
+      </div>
+    </div>
+  </div>
   <div class="wrap">
-    <header class="hm-head" data-reveal>
-      <span class="hm-ghost" aria-hidden="true">Focus</span>
-      <p class="hm-kicker"><b>02</b> Focus</p>
-      <h2 class="h2" id="focus-title">What I work <em class="scribble">on</em></h2>
+    <dl class="sheet">
+      {%- for fact in page.facts %}
+      <div><dt>{{ fact.label }}</dt><dd>{{ fact.value }}</dd></div>
+      {%- endfor %}
+    </dl>
+    <ul class="counts">
+      <li><a href="{{ '/publications/' | relative_url }}"><b>{{ pub_count | strip }}</b><span>Publications</span>{% include icon.liquid name="arrow" %}</a></li>
+      <li><a href="{{ '/projects/' | relative_url }}"><b>{{ site.data.repositories.size }}</b><span>Open-source projects</span>{% include icon.liquid name="arrow" %}</a></li>
+      <li><a href="{{ '/blog/' | relative_url }}"><b>{{ site.posts.size }}</b><span>Blog posts</span>{% include icon.liquid name="arrow" %}</a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section section--sand" id="focus" aria-labelledby="focus-title">
+  <div class="wrap">
+    <header class="section-head">
+      <p class="kicker"><b>02</b> Focus</p>
+      <h2 class="h2" id="focus-title">What I work <em>on</em></h2>
     </header>
-    <ol class="hm-cards">
+    <ol class="focus">
       {%- for item in page.focus %}
-      <li data-reveal>
-        <article class="hm-card" data-fill="{{ item.color }}">
-          <span class="hm-card-icon">{% include doodle.liquid name=item.icon %}</span>
-          <h3>{{ item.title }}</h3>
-          <p>{{ item.text }}</p>
-          <p class="tags">{% for t in item.tags %}<span class="tag">{{ t }}</span>{% endfor %}</p>
-        </article>
+      <li>
+        <p class="focus-top"><span class="focus-n">{{ forloop.index | prepend: '0' }}</span><span class="focus-icon">{% include doodle.liquid name=item.icon %}</span></p>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.text }}</p>
+        <p class="tags">{% for t in item.tags %}<span class="tag">{{ t }}</span>{% endfor %}</p>
       </li>
       {%- endfor %}
     </ol>
   </div>
 </section>
 
-<section class="section hm-section" id="research" aria-labelledby="research-title">
+<section class="section" id="research" aria-labelledby="research-title">
   <div class="wrap">
-    <header class="hm-head hm-head--row" data-reveal>
-      <span class="hm-ghost" aria-hidden="true">Research</span>
+    <header class="section-head section-head--row">
       <div>
-        <p class="hm-kicker"><b>03</b> Research</p>
-        <h2 class="h2" id="research-title">Selected <em class="scribble">publications</em></h2>
+        <p class="kicker"><b>03</b> Research</p>
+        <h2 class="h2" id="research-title">Selected <em>publications</em></h2>
       </div>
-      <a class="btn btn--small" href="{{ '/publications/' | relative_url }}" data-color="cyan">All publications {% include icon.liquid name="arrow" %}</a>
+      <a class="btn btn--ghost btn--small" href="{{ '/publications/' | relative_url }}">All publications {% include icon.liquid name="arrow" %}</a>
     </header>
-    <div class="pubs hm-pubs" data-reveal>
+    <div class="pubs pubs--home">
       {% bibliography --group_by none --query @*[selected=true]* %}
     </div>
   </div>
 </section>
 
-<section class="section section--tint hm-section" id="writing" aria-labelledby="writing-title">
+<section class="section section--sand" id="writing" aria-labelledby="writing-title">
   <div class="wrap">
-    <header class="hm-head hm-head--row" data-reveal>
-      <span class="hm-ghost" aria-hidden="true">Writing</span>
+    <header class="section-head section-head--row">
       <div>
-        <p class="hm-kicker"><b>04</b> Writing</p>
-        <h2 class="h2" id="writing-title">Notes from the <em class="scribble">lab</em></h2>
+        <p class="kicker"><b>04</b> Writing</p>
+        <h2 class="h2" id="writing-title">Postcards from the <em>Strait</em></h2>
       </div>
-      <a class="btn btn--small" href="{{ '/blog/' | relative_url }}" data-color="ice">All posts {% include icon.liquid name="arrow" %}</a>
+      <a class="btn btn--ghost btn--small" href="{{ '/blog/' | relative_url }}">All posts {% include icon.liquid name="arrow" %}</a>
     </header>
     {%- if site.posts.size > 0 %}
-    <ol class="hm-posts">
-      {%- for post in site.posts limit: 3 %}
-      {%- assign words = post.content | strip_html | number_of_words -%}
-      {%- assign minutes = words | plus: 120 | divided_by: 200 | at_least: 1 %}
-      <li data-reveal>
-        <a class="hm-post" href="{{ post.url | relative_url }}" data-color="ice">
-          <time class="hm-post-date" datetime="{{ post.date | date_to_xmlschema }}"><b>{{ post.date | date: "%d" }}</b><span>{{ post.date | date: "%b %Y" }}</span></time>
-          <span class="hm-post-body">
-            <span class="hm-post-title">{{ post.title }}</span>
-            {%- if post.description %}<span class="hm-post-desc">{{ post.description }}</span>{% endif %}
-            <span class="hm-post-meta">{{ minutes }} min read{% for t in post.tags limit: 3 %} · {{ t }}{% endfor %}</span>
-          </span>
-          <span class="hm-post-go" aria-hidden="true">{% include icon.liquid name="arrow" %}</span>
-        </a>
-      </li>
+    <div class="postcards">
+      {%- for post in site.posts limit: 2 %}
+      {% include post-card.liquid post=post %}
       {%- endfor %}
-    </ol>
+    </div>
     {%- else %}
-    <p class="empty" data-reveal>The first post is on its way.</p>
+    <p class="empty">The first post is on its way.</p>
     {%- endif %}
   </div>
 </section>
 
-<section class="section hm-section" id="news" aria-labelledby="news-title">
-  <div class="wrap hm-news">
-    <header class="hm-head" data-reveal>
-      <span class="hm-ghost" aria-hidden="true">News</span>
-      <p class="hm-kicker"><b>05</b> News</p>
-      <h2 class="h2" id="news-title">Lately on the <em class="scribble">calendar</em></h2>
+<section class="section" id="news" aria-labelledby="news-title">
+  <div class="wrap news">
+    <header class="section-head">
+      <p class="kicker"><b>05</b> News</p>
+      <h2 class="h2" id="news-title">The <em>logbook</em></h2>
       <p class="muted">Open source: {% for p in site.data.repositories %}{% if p.featured %}<a href="https://github.com/{{ p.repo }}">{{ p.name }}</a>{% unless forloop.last %}, {% endunless %}{% endif %}{% endfor %} and more on the <a href="{{ '/projects/' | relative_url }}">projects page</a>.</p>
     </header>
-    <ol class="hm-cal">
+    <ol class="log">
       {%- for item in news limit: 6 %}
-      <li data-reveal>
-        <time datetime="{{ item.date | date_to_xmlschema }}"><b>{{ item.date | date: "%b" }}</b><span>{{ item.date | date: "%Y" }}</span></time>
+      <li>
+        <time datetime="{{ item.date | date_to_xmlschema }}">{{ item.date | date: "%b %Y" }}</time>
         <p>{{ item.content | remove: '<p>' | remove: '</p>' }}</p>
       </li>
       {%- endfor %}
@@ -200,34 +141,24 @@ layout: default
   </div>
 </section>
 
-<section class="hm-contact" id="contact" aria-labelledby="contact-title">
-  <div class="wrap hm-contact-grid">
-    <div class="hm-contact-text">
-      <header class="hm-head" data-reveal>
-        <span class="hm-ghost" aria-hidden="true">Contact</span>
-        <p class="hm-kicker"><b>06</b> Contact</p>
-        <h2 class="display display--md" id="contact-title">Let’s build something <em class="scribble">together</em>.</h2>
-      </header>
-      <div class="hm-dialogue" data-reveal>
-        <span class="hm-dialogue-name" aria-hidden="true">{{ site.first_name }}</span>
-        <p class="hm-dialogue-text">{{ site.contact_note }}</p>
-      </div>
+<section class="contact" id="contact" aria-labelledby="contact-title">
+  <div class="wrap contact-grid">
+    <div>
+      <p class="kicker"><b>06</b> Contact</p>
+      <h2 class="display display--md" id="contact-title">Let’s build something <em>together</em>.</h2>
+      <p class="lede">{{ site.contact_note }}</p>
     </div>
-
-    <div class="hm-choices-wrap">
-      <ul class="hm-choices">
-        <li data-reveal><a href="mailto:{{ site.email | encode_email }}">{% include icon.liquid name="mail" %}<span><b>Send an email</b><small>{{ site.email }}</small></span></a></li>
-        {%- if site.social.linkedin %}
-        <li data-reveal><a href="https://www.linkedin.com/in/{{ site.social.linkedin }}">{% include icon.liquid name="linkedin" %}<span><b>Connect on LinkedIn</b><small>in/{{ site.social.linkedin }}</small></span></a></li>
-        {%- endif %}
-        {%- if site.social.telegram %}
-        <li data-reveal><a href="https://t.me/{{ site.social.telegram }}">{% include icon.liquid name="telegram" %}<span><b>Message on Telegram</b><small>@{{ site.social.telegram }}</small></span></a></li>
-        {%- endif %}
-        {%- if site.social.discord %}
-        <li data-reveal><span class="hm-choice-static">{% include icon.liquid name="discord" %}<span><b>Find me on Discord</b><small>{{ site.social.discord }}</small></span></span></li>
-        {%- endif %}
-      </ul>
-      {% include social.liquid labels=true class="social--labels hm-social" %}
-    </div>
+    <ul class="choices">
+      <li><a href="mailto:{{ site.email | encode_email }}">{% include icon.liquid name="mail" %}<span><b>Send an email</b><small>{{ site.email }}</small></span>{% include icon.liquid name="arrow-up-right" %}</a></li>
+      {%- if site.social.linkedin %}
+      <li><a href="https://www.linkedin.com/in/{{ site.social.linkedin }}">{% include icon.liquid name="linkedin" %}<span><b>Connect on LinkedIn</b><small>in/{{ site.social.linkedin }}</small></span>{% include icon.liquid name="arrow-up-right" %}</a></li>
+      {%- endif %}
+      {%- if site.social.telegram %}
+      <li><a href="https://t.me/{{ site.social.telegram }}">{% include icon.liquid name="telegram" %}<span><b>Message on Telegram</b><small>@{{ site.social.telegram }}</small></span>{% include icon.liquid name="arrow-up-right" %}</a></li>
+      {%- endif %}
+      {%- if site.social.discord %}
+      <li><span class="choice-static">{% include icon.liquid name="discord" %}<span><b>Find me on Discord</b><small>{{ site.social.discord }}</small></span></span></li>
+      {%- endif %}
+    </ul>
   </div>
 </section>
