@@ -11,13 +11,38 @@ intro: >-
   to end, from raw data to production. A PhD in Scientific Machine Learning taught me to
   care about models that are reliable, efficient and interpretable.
 
+status: Open to ML roles
+
 facts:
   - label: Role
     value: Machine Learning Engineer
   - label: PhD
     value: Scientific ML, Aarhus University
-  - label: Open to
-    value: ML roles
+  - label: Background
+    value: Applied Mathematics, Pisa
+  - label: Based in
+    value: Italy
+
+# The command menu in the hero. Each id is a section of the home page.
+menu:
+  - title: About
+    id: about
+    hint: Who I am and where I have worked.
+  - title: Focus
+    id: focus
+    hint: The four things I work on.
+  - title: Research
+    id: research
+    hint: Selected publications, with code.
+  - title: Writing
+    id: writing
+    hint: Long-form notes from the blog.
+  - title: News
+    id: news
+    hint: What happened lately.
+  - title: Contact
+    id: contact
+    hint: Mail, LinkedIn, Telegram or Discord.
 
 focus:
   - title: End-to-end ML Systems

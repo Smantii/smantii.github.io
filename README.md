@@ -24,33 +24,42 @@ slanted shapes, halftone dots and lots of motion. There is no CSS framework and 
 
 ## Editing the home page
 
-Everything above the bio is front matter in `_pages/about.md`:
+The home page is laid out like a game menu screen. Everything above the bio is front matter in `_pages/about.md`:
 
 ```yaml
 eyebrow: Machine Learning Engineer          # the slanted label above the headline
+status: Open to ML roles                    # the line with the green marker next to it (optional)
 headline: Turning data into models that <em>ship</em>.   # <em> = cyan highlight block
 intro: >-
-  One short paragraph under the headline.
-facts:                                      # the three boxes under the buttons
+  One short paragraph. It is typed into the dialogue box under the headline.
+facts:                                      # the rows of the status sheet in "About"
   - label: Role
     value: Machine Learning Engineer
+menu:                                       # the command menu over the portrait
+  - title: About                            # each id is a section of the home page:
+    id: about                               # about | focus | research | writing | news | contact
+    hint: Who I am and where I have worked. # shown under the menu while the item is selected
 focus:                                      # the four "What I work on" cards
   - title: End-to-end ML Systems
     icon: pipeline                          # pipeline | wave | tree | agent (see doodle.liquid)
     color: navy                             # navy | cyan | sky | ice
     text: One or two sentences.
     tags: [Pipelines, PyTorch]
-# bubble: Open to work!                     # optional dialogue box on the portrait
 ```
 
 The bio is the Markdown below the front matter. Wrapping a word in `<em>` inside any headline
-(`.display` or `.h2`) gives it the cyan highlight block.
+(`.display` or `.h2`) gives it the cyan highlight block. The three counters in "About"
+(publications, projects, posts) are counted from the site's data, and the date and moon phase
+in the hero are today's, worked out in the browser.
+
+The home page has its own files, loaded only there: `_layouts/home.liquid`, `assets/css/home.css`
+and `assets/js/home.js`.
 
 In `_config.yml`:
 
 - `nav`: the menu. Each item has a `color` (`cyan`, `sky`, `ice` or `aqua`) used for its hover state and page transition.
-- `ticker`: the words in the two scrolling bands under the hero.
-- `contact_note`: the sentence in the "Get in touch" card.
+- `ticker`: the words in the scrolling band under the hero.
+- `contact_note`: the sentence in the dialogue box of the "Contact" section.
 - `cv_pdf`: put your CV at e.g. `assets/pdf/CV_Simone_Manti.pdf` and set this path to show a **Download CV** button on `/cv/`.
 
 ## Writing a blog post (the long version of a LinkedIn post)
