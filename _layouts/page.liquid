@@ -2,13 +2,11 @@
 layout: default
 ---
 <header class="page-head">
-  <canvas class="flow flow--band" aria-hidden="true"></canvas>
-  {% include doodle.liquid name="sparkle" class="float float--a page-doodle page-doodle--1" %}
-  {% include doodle.liquid name="shard" class="float float--b page-doodle page-doodle--2" %}
-  <div class="wrap">
-    {%- if page.eyebrow %}<p class="eyebrow sticker" data-reveal>{{ page.eyebrow }}</p>{% endif %}
-    <h1 class="display display--md" data-split>{{ page.heading | default: page.title }}</h1>
-    {%- if page.description %}<p class="lede" data-reveal>{{ page.description }}</p>{% endif %}
+  {% include sky.liquid kind="band" %}
+  <div class="wrap enter">
+    {%- if page.eyebrow %}<p class="eyebrow">{{ page.eyebrow }}</p>{% endif %}
+    <h1 class="display display--md">{{ page.heading | default: page.title }}</h1>
+    {%- if page.description %}<p class="lede">{{ page.description }}</p>{% endif %}
   </div>
 </header>
 <div class="wrap page-body {% if page.narrow %}wrap--narrow{% endif %}">

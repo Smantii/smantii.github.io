@@ -1,6 +1,7 @@
 ---
 title: "Scylla, Charybdis and symbolic regression"
 description: The currents of the Strait of Messina, an old myth, and why a short formula found from data can beat a black box.
+card: /assets/img/blog/scylla-charybdis/card.jpg # picture on the blog index and the home page
 date: 2026-10-24 18:00:00+0200
 tags: [symbolic regression, scientific ML, reduced order models]
 math: true

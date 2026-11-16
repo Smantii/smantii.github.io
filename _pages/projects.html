@@ -9,15 +9,15 @@ description: Libraries and research code I build and maintain, mostly at the <a 
 
 <div class="project-grid">
 {%- for p in site.data.repositories %}
-  <a class="project-card tilt" href="https://github.com/{{ p.repo }}" data-reveal>
-    <div class="project-top">
-      <span class="project-icon">{% include icon.liquid name="github" %}</span>
+  <a class="project-card" href="https://github.com/{{ p.repo }}">
+    <span class="project-top">
+      <span class="project-n">{{ forloop.index | prepend: '0' }}</span>
       {%- if p.years %}<span class="eyebrow">{{ p.years }}</span>{% endif %}
-    </div>
-    <h2>{{ p.name }}</h2>
-    <p class="project-repo">{{ p.repo }}</p>
-    <p class="project-desc">{{ p.description }}</p>
-    <p class="tags">{% for t in p.tags %}<span class="tag">{{ t }}</span>{% endfor %}</p>
+    </span>
+    <span class="project-name">{{ p.name }}</span>
+    <span class="project-repo">{% include icon.liquid name="github" %}{{ p.repo }}</span>
+    <span class="project-desc">{{ p.description }}</span>
+    <span class="tags">{% for t in p.tags %}<span class="tag">{{ t }}</span>{% endfor %}</span>
     <span class="project-arrow">{% include icon.liquid name="arrow-up-right" %}</span>
   </a>
 {%- endfor %}
